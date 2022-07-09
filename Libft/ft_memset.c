@@ -1,13 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 19:13:08 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/05 19:14:30 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/07/09 15:51:14 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/07/09 16:10:10 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+#include "libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	int		cnt;
+	char	*temp;
+
+	cnt = 0;
+	temp = (char *)b;
+	while (cnt < len)
+	{
+		temp[cnt] = c;
+		cnt++;
+	}
+	return (b);
+}
