@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 15:58:02 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/09 17:51:55 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/07/09 17:45:48 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/07/09 17:51:41 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int		cnt;
-	char	*temp;
+	size_t	idx;
+	size_t	dstlen;
+	size_t	srclen;
 
-	cnt = 0;
-	temp = (char *)s;
-	if (n != 0)
+	idx = 0;
+	dstlen = 0;
+	srclen = 0;
+	while (dst[dstlen] != '\0')
+		dstlen++;
+	while (src[srclen] != '\0')
+		srclen++;
+	if (dstsize > dstlen)
 	{
-		while (cnt < n)
+		while (idx < (dstsize - dstlen - 1) && src[idx] != '\0')
 		{
-			temp[cnt] = 0;
-			cnt++;
+			dst[dstlen + idx] = src[idx];
+			idx++;
 		}
+		dst[dstlen + idx] = '\0';
+		return (dstlen + srclen);
 	}
+	return (dstsize + srclen);
 }

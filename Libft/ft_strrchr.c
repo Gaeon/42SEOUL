@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 17:13:44 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/09 17:34:51 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/07/09 18:08:05 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/07/09 18:42:06 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	int		cnt;
-	char	*temp_dst;
-	char	*temp_src;
+	int	idx;
 
-	cnt = 0;
-	temp_dst = (char *)dst;
-	temp_src = (char *)src;
-	cnt = 0;
-	while (cnt < len)
+	idx = 0;
+	while (*s != '\0')
 	{
-		temp_dst[cnt] = temp_src[cnt];
-		cnt++;
+		idx++;
+		s++;
 	}
-	return (temp_dst);
+	if (c == '\0')
+		return ((char *)s);
+	while (idx >= 0)
+	{
+		if (*s == c)
+			return ((char *)s);
+		s--;
+		idx--;
+	}
+	return (0);
 }

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 17:13:44 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/09 17:34:51 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/07/09 17:35:55 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/07/09 17:45:18 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int		cnt;
-	char	*temp_dst;
-	char	*temp_src;
+	size_t	idx;
+	size_t	srcsize;
 
-	cnt = 0;
-	temp_dst = (char *)dst;
-	temp_src = (char *)src;
-	cnt = 0;
-	while (cnt < len)
+	idx = 0;
+	srcsize = 0;
+	while (src[srcsize] != '\0')
+		srcsize++;
+	if (dstsize != 0)
 	{
-		temp_dst[cnt] = temp_src[cnt];
-		cnt++;
+		while (src[idx] && idx < (dstsize - 1))
+		{
+			dst[idx] = src[idx];
+			idx++;
+		}
+		dst[idx] = '\0';
 	}
-	return (temp_dst);
+	return (srcsize);
 }

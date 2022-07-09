@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 17:13:44 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/09 17:34:51 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/07/09 18:01:19 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/07/09 18:03:20 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int	ft_toupper(int c)
 {
-	int		cnt;
-	char	*temp_dst;
-	char	*temp_src;
-
-	cnt = 0;
-	temp_dst = (char *)dst;
-	temp_src = (char *)src;
-	cnt = 0;
-	while (cnt < len)
-	{
-		temp_dst[cnt] = temp_src[cnt];
-		cnt++;
-	}
-	return (temp_dst);
+	if ('a' <= c && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
 }
