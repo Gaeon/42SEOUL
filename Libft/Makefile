@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 19:10:56 by gaeokim           #+#    #+#              #
-#    Updated: 2022/07/09 19:01:29 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/07/17 13:44:10 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,12 @@ SRCS = 	./ft_isalpha.c \
 		./ft_memchr.c \
 		./ft_memcmp.c \
 		./ft_strnstr.c \
-		./ft_atoi.c
+		./ft_atoi.c \
+		./ft_calloc.c \
+		./ft_strdup.c \
+		./ft_substr.c \
+		./ft_strjoin.c \
+		./ft_strtrim.c
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
