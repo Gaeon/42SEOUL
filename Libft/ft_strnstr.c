@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 18:52:14 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/17 13:06:28 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/17 17:41:14 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	idx = 0;
 	offset = 0;
 	if (needle[0] == '\0')
-		return (haystack);
+		return ((char *)haystack);
 	while (haystack[idx] != '\0' && idx < len)
 	{
 		if (haystack[idx] == needle[offset])
 		{
 			offset++;
 			if (needle[offset] == '\0')
-				return (&haystack[idx - offset + 1]);
+				return ((char *)&haystack[idx - offset + 1]);
 		}
 		else
 		{

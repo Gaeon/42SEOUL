@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 13:58:55 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/17 16:30:43 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/17 16:38:54 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_word_cnt(char const *s, char c)
 	return (cnt);
 }
 
-void	ft_strcpy(char *array, char *s, int word_len)
+void	ft_strcpy(char *array, const char *s, int word_len)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ void	ft_strcpy(char *array, char *s, int word_len)
 	array[i] = '\0';
 }
 
-void	ft_make(char *s, char c, char **array)
+void	ft_make(const char *s, char c, char **array)
 {
 	int	i;
 	int	k;

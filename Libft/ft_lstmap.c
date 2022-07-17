@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/17 15:17:48 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/17 17:39:10 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/07/17 17:17:14 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/07/17 17:44:33 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int		idx;
+	t_list	*head;
+	t_list	*cur;
 
-	idx = 0;
-	while (s[idx])
+	head = cur;
+	if (lst == 0 || f == 0 || del == 0)
+		return (0);
+	while (lst)
 	{
-		f(idx, &s[idx]);
-		idx++;
+		cur->content = f(lst->content);
+		cur->next = lst->next;
+		cur = cur->next;
+		lst = lst->next;
 	}
+	return (head);
 }
