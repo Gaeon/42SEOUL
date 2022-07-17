@@ -6,13 +6,13 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 14:17:43 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/17 15:12:30 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/17 15:35:20 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_numlen(long l_n)
+static int	ft_numlen(long l_n)
 {
 	int	len;
 
