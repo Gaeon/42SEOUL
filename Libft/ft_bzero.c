@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:58:02 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/09 17:51:55 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/19 14:11:34 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	int		cnt;
-	char	*temp;
+	size_t			cnt;
+	unsigned char	*temp;
 
 	cnt = 0;
-	temp = (char *)s;
+	temp = (unsigned char *)s;
 	if (n != 0)
 	{
 		while (cnt < n)

@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 18:05:34 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/09 18:40:08 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/19 18:10:55 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (s == 0)
+		return (0);
 	while (*s != '\0')
 	{
 		if (*s == c)

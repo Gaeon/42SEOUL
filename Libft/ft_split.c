@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 13:58:55 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/17 16:38:54 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/19 18:39:47 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,7 @@ int	ft_word_cnt(char const *s, char c)
 	return (cnt);
 }
 
-void	ft_strcpy(char *array, const char *s, int word_len)
-{
-	int	i;
-
-	i = 0;
-	while (i < word_len)
-	{
-		array[i] = s[i];
-		i++;
-	}
-	array[i] = '\0';
-}
-
-void	ft_make(const char *s, char c, char **array)
+int	ft_make(char const *s, char c, char **array)
 {
 	int	i;
 	int	k;
@@ -58,26 +45,38 @@ void	ft_make(const char *s, char c, char **array)
 		{
 			array[k] = (char *)malloc(sizeof(char) * (word_len + 1));
 			if (array[k] == 0)
-				return ;
-			ft_strcpy(array[k], &s[i], word_len);
+				return (k);
+			ft_strlcpy(array[k], &s[i], word_len + 1);
 			k++;
 		}
 		i += word_len + 1;
 	}
 	array[k] = 0;
+	return (-1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		cnt;
+	int		flag;
 	char	**array;
 
+	flag = 0;
 	if (s == 0)
 		return (0);
 	cnt = ft_word_cnt(s, c);
 	array = (char **)malloc(sizeof(char *) * (cnt + 1));
 	if (array == 0)
 		return (0);
-	ft_make(s, c, array);
+	flag = ft_make(s, c, array);
+	if (flag != -1)
+	{
+		while (flag > 0)
+		{
+			free(array[flag - 1]);
+			flag--;
+		}
+		free(array);
+	}
 	return (array);
 }

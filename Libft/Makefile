@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 19:10:56 by gaeokim           #+#    #+#              #
-#    Updated: 2022/07/17 17:38:14 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/07/19 17:43:24 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
+
 HEADER  = ./libft.h
+
 SRCS = 	./ft_isalpha.c \
 		./ft_isdigit.c \
 		./ft_isalnum.c \
@@ -49,6 +51,8 @@ SRCS = 	./ft_isalpha.c \
 		./ft_putstr_fd.c \
 		./ft_putendl_fd.c \
 		./ft_putnbr_fd.c
+OBJS = $(SRCS:.c=.o)
+
 SRCS_BONUS =	./ft_lstnew.c \
 				./ft_lstadd_front.c \
 				./ft_lstsize.c \
@@ -58,8 +62,6 @@ SRCS_BONUS =	./ft_lstnew.c \
 				./ft_lstclear.c \
 				./ft_lstiter.c \
 				./ft_lstmap.c
-OBJS = $(SRCS:.c=.o)
-
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all : $(NAME)
@@ -68,7 +70,7 @@ bonus : $(OBJS_BONUS)
 	ar rc $(NAME) $(OBJS_BONUS)
 
 .c.o :
-	$(CC) $(CFLAG) -c -o $(<:.c=.o) $<
+	$(CC) $(CFLAG) -I includes -c $< -o $@
 
 $(NAME) : $(OBJS)
 	ar rc $(NAME) $(OBJS)

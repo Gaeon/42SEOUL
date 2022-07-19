@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 13:10:56 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/17 13:23:29 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/19 15:54:14 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		idx;
+	size_t	idx;
 	char	*substr;
 
 	idx = 0;
+	if (s == 0)
+		return (0);
 	substr = (char *)malloc(len + 1);
 	if (substr == 0)
 		return (NULL);
