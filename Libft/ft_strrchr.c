@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 18:08:05 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/19 18:15:42 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/19 19:09:19 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	idx;
 
-	if (s == 0)
-		return (0);
 	idx = ft_strlen(s);
 	if (c == '\0')
 		return ((char *)&s[idx]);

@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 17:17:14 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/19 18:51:40 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/19 19:33:02 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*head;
 	t_list	*cur;
-	t_list	*ret;
 
-	ret = NULL;
-	if (lst == 0 || f == 0 || del == 0)
+	if (lst == 0 || f == 0)
 		return (0);
+	head = ft_lstnew(f(lst->content));
+	if (head == 0)
+		return (0);
+	cur = head;
+	lst = lst->next;
 	while (lst)
 	{
-		cur = ft_lstnew(f(lst->content));
-		if (cur == 0)
+		cur->next = ft_lstnew(f(lst->content));
+		if (cur->next == 0)
 		{
-			ft_lstclear(&cur, del);
+			ft_lstclear(&head, del);
 			return (0);
 		}
-		ft_lstadd_back(&ret, cur);
 		cur = cur->next;
 		lst = lst->next;
 	}
-	return (ret);
+	return (head);
 }

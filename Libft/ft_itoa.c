@@ -6,22 +6,19 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 14:17:43 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/17 15:35:20 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/19 19:06:57 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_numlen(long l_n)
+static int	ft_numlen(long l_n, long sign)
 {
 	int	len;
 
 	len = 0;
-	if (l_n <= 0)
-	{
-		l_n *= -1;
+	if (sign == -1)
 		len++;
-	}
 	while (l_n > 0)
 	{
 		l_n /= 10;
@@ -30,7 +27,7 @@ static int	ft_numlen(long l_n)
 	return (len);
 }
 
-char	*ft_fill_str(int len, int sign, long l_n)
+char	*ft_fill_str(int len, long sign, long l_n)
 {
 	char	*nbr;
 
@@ -39,14 +36,14 @@ char	*ft_fill_str(int len, int sign, long l_n)
 		return (0);
 	nbr[len] = '\0';
 	len--;
-	if (l_n < 0)
-		l_n *= -1;
+	if (l_n == 0)
+		sign = 1;
 	while (len >= 0)
 	{
 		if (len == 0 && sign == -1)
 		{
 			nbr[len] = '-';
-			len--;
+			return (nbr);
 		}
 		nbr[len] = l_n % 10 + '0';
 		l_n /= 10;
@@ -58,14 +55,14 @@ char	*ft_fill_str(int len, int sign, long l_n)
 char	*ft_itoa(int n)
 {
 	int		len;
-	int		sign;
+	long	sign;
 	long	l_n;
 
 	l_n = (long)n;
-	len = ft_numlen(l_n);
-	if (l_n < 0)
+	if (l_n <= 0)
 		sign = -1;
 	else
 		sign = 1;
-	return (ft_fill_str(len, sign, l_n));
+	len = ft_numlen(l_n * sign, sign);
+	return (ft_fill_str(len, sign, l_n * sign));
 }

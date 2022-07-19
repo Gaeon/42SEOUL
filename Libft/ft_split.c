@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 13:58:55 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/19 18:39:47 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/19 19:37:11 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ char	**ft_split(char const *s, char c)
 	if (array == 0)
 		return (0);
 	flag = ft_make(s, c, array);
-	if (flag != -1)
-	{
-		while (flag > 0)
-		{
-			free(array[flag - 1]);
-			flag--;
-		}
-		free(array);
-	}
+	// if (flag != -1)
+	// {
+	// 	while (flag > 0)
+	// 	{
+	// 		free(array[flag - 1]);
+	// 		flag--;
+	// 	}
+	// 	free(array);
+	// }
 	return (array);
 }
