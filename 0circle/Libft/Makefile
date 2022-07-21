@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 19:10:56 by gaeokim           #+#    #+#              #
-#    Updated: 2022/07/21 13:14:35 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/07/21 16:33:26 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ endif
 all : $(NAME)
 
 .c.o :
-	$(CC) $(CFLAG) -I includes -c $< -o $@
+	$(CC) $(CFLAG) -c $< -o $@
 
 $(NAME) : $(OBJS_F)
 	ar rc $(NAME) $(OBJS_F)
