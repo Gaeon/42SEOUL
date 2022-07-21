@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 17:07:36 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/21 17:14:33 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/21 17:26:44 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	void	*buf;
-
-	read(fd, buf, BUFFSIZE);
+	if (fd == 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
+		return (0);
+	return (0);
 }

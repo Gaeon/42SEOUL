@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:34:17 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/21 17:05:33 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/21 17:26:07 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,6 @@
 int	ft_printf(const char *type, ...)
 {
 	va_list	ap;
+
+	return (0);
 }
