@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 13:58:55 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/19 19:37:11 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/21 14:46:42 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ int	ft_word_cnt(char const *s, char c)
 
 int	ft_make(char const *s, char c, char **array)
 {
-	int	i;
-	int	k;
-	int	word_len;
+	unsigned int	i;
+	unsigned int	k;
+	unsigned int	word_len;
 
 	i = 0;
 	k = 0;
-	while (s[i] != 0)
+	while (i < ft_strlen(s))
 	{
 		word_len = 0;
-		while (s[i + word_len] != c)
+		while (s[i + word_len] && s[i + word_len] != c)
 			word_len++;
 		if (word_len > 0)
 		{
@@ -57,26 +57,25 @@ int	ft_make(char const *s, char c, char **array)
 
 char	**ft_split(char const *s, char c)
 {
-	int		cnt;
 	int		flag;
 	char	**array;
 
 	flag = 0;
 	if (s == 0)
 		return (0);
-	cnt = ft_word_cnt(s, c);
-	array = (char **)malloc(sizeof(char *) * (cnt + 1));
+	array = (char **)malloc(sizeof(char *) * (ft_word_cnt(s, c) + 1));
 	if (array == 0)
 		return (0);
 	flag = ft_make(s, c, array);
-	// if (flag != -1)
-	// {
-	// 	while (flag > 0)
-	// 	{
-	// 		free(array[flag - 1]);
-	// 		flag--;
-	// 	}
-	// 	free(array);
-	// }
+	if (flag != -1)
+	{
+		while (flag >= 0)
+		{
+			free(array[flag]);
+			flag--;
+		}
+		free(array);
+		return (0);
+	}
 	return (array);
 }

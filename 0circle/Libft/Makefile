@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 19:10:56 by gaeokim           #+#    #+#              #
-#    Updated: 2022/07/19 17:43:24 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/07/21 13:14:35 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,22 +64,28 @@ SRCS_BONUS =	./ft_lstnew.c \
 				./ft_lstmap.c
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
-all : $(NAME)
+ifdef BONUS
+	OBJS_F = $(OBJS) $(OBJS_BONUS)
+else
+	OBJS_F = $(OBJS)
+endif
 
-bonus : $(OBJS_BONUS)
-	ar rc $(NAME) $(OBJS_BONUS)
+all : $(NAME)
 
 .c.o :
 	$(CC) $(CFLAG) -I includes -c $< -o $@
 
-$(NAME) : $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(NAME) : $(OBJS_F)
+	ar rc $(NAME) $(OBJS_F)
+
+bonus :
+	make BONUS=1 all
 
 clean :
 	rm -f $(OBJS) $(OBJS_BONUS)
 
-fclean :
-	rm -f $(OBJS) $(OBJS_BONUS) $(NAME)
+fclean :	clean
+	rm -f $(NAME)
 
 re :	fclean all
 
