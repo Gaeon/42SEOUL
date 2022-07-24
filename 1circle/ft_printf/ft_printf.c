@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:34:17 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/22 12:28:21 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/24 15:50:34 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ ssize_t	ft_format(const char *str, va_list *ap)
 		print_len += ft_print_cs(str[1], &ap);
 	else if (str[1] == 'd' || str[1] == 'i' || str[1] == 'u')
 		print_len += ft_print_diu(str[1], &ap);
-	else if (str[1] == 'p' || str[1] == 'x')
-		print_len += ft_print_px(str[1], &ap);
-	else if (str[1] == 'X')
-		print_len += ft_print_X(str[1], &ap);
+	// else if (str[1] == 'p' || str[1] == 'x')
+	// 	print_len += ft_print_px(str[1], &ap);
+	// else if (str[1] == 'X')
+	// 	print_len += ft_print_X(str[1], &ap);
 	else
 		print_len += write(1, "%", 1);
 }
@@ -53,7 +53,7 @@ int	ft_printf(const char *str, ...)
 	ssize_t	len;
 
 	va_start(ap, str);
-	if (!ft_intput_check(str))
+	if (!ft_input_check(str))
 		return (0);
 	while (str[idx])
 	{

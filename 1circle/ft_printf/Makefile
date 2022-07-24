@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 19:10:56 by gaeokim           #+#    #+#              #
-#    Updated: 2022/07/21 16:42:40 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/07/24 15:45:02 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,12 @@ NAME = libftprintf.a
 
 HEADER  = ./ft_printf.h
 
-SRCS = 	./ft_printf.c
+SRCS = 	./ft_printf.c \
+		./ft_printf_util.c \
+		./ft_printf_format.c
 OBJS = $(SRCS:.c=.o)
 
-SRCS_BONUS =
+SRCS_BONUS = 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 ifdef BONUS

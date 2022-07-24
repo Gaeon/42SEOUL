@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 12:28:36 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/22 12:47:39 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/24 15:42:26 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,9 @@ ssize_t	ft_print_diu(const char c, va_list *ap)
 
 	print_len = 0;
 	nbr = (long)va_arg(*ap, int);
-	if (c == 'd' || c == 'u')
-	{
-		str = ft_itoa(nbr);
-		print_len = write(1, str, ft_strlen(str));
-	}
+	str = ft_itoa(nbr);
+	print_len = write(1, str, ft_strlen(str));
+	return (print_len);
 }
 ssize_t	t_print_px(const char c, va_list *ap);
 ssize_t	ft_print_X(const char c, va_list *ap);
