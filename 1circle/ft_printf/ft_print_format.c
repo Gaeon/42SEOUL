@@ -6,43 +6,34 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 12:28:36 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/24 15:42:26 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/24 18:11:26 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-ssize_t	ft_print_cs(const char c, va_list *ap)
+int	ft_print_c(int c)
 {
-	char	*str;
-	ssize_t	print_len;
+	int	len;
 
-	str = va_arg(*ap, char *);
-	print_len = 0;
-	if (c == 'c')
-		print_len = write(1, &str[0], 1);
+	len = write(1, &c, 1);
+	return (len);
+}
+
+int	ft_print_s(char	*str)
+{
+	int	len;
+
+	if (str == 0)
+		len = write(1, "(NULL)", 6);
 	else
-	{
-		if (str == 0)
-			print_len = write(1, "(NULL)", 6);
-		else
-			print_len = write(1, str, ft_strlen(str));
-	}
-	return (print_len);
+		len = write(1, str, ft_strlen(str));
+	return (len);
 }
 
-ssize_t	ft_print_diu(const char c, va_list *ap)
+int	ft_print_diu(int nbr)
 {
-	const char	base[11] = "0123456789";
-	char		*str;
-	long		nbr;
-	ssize_t		print_len;
+	int	len;
 
-	print_len = 0;
-	nbr = (long)va_arg(*ap, int);
-	str = ft_itoa(nbr);
-	print_len = write(1, str, ft_strlen(str));
-	return (print_len);
+	return (len);
 }
-ssize_t	t_print_px(const char c, va_list *ap);
-ssize_t	ft_print_X(const char c, va_list *ap);

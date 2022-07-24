@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:41:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/24 15:47:57 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/24 17:32:15 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *s);
 char	*ft_itoa(int n);
 
-ssize_t	ft_print_cs(const char c, va_list *ap);
-ssize_t	ft_print_diu(const char c, va_list *ap);
-ssize_t	t_print_px(const char c, va_list *ap);
+int		ft_print_c(int c);
+int		ft_print_s(char *str);
+int		fr_print_diu(int nbr);
 ssize_t	ft_print_X(const char c, va_list *ap);
 
 #endif

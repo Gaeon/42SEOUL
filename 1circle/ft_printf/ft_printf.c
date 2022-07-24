@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:34:17 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/24 15:50:34 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/24 17:32:07 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@
 
 ssize_t	ft_format(const char *str, va_list *ap)
 {
-	int	print_len;
+	char	temp;
+	int		print_len;
 
 	print_len = 0;
-	if (str[1] == 'c' || str[1] == 's')
-		print_len += ft_print_cs(str[1], &ap);
+	if (str[1] == 'c')
+		print_len = ft_print_c(va_arg(*ap, int));
+	else if (str[1] == 's')
+		print_len = ft_print_s(va_arg(*ap, char *));
 	else if (str[1] == 'd' || str[1] == 'i' || str[1] == 'u')
-		print_len += ft_print_diu(str[1], &ap);
+		print_len += ft_print_diu(va_arg(*ap, int));
 	// else if (str[1] == 'p' || str[1] == 'x')
 	// 	print_len += ft_print_px(str[1], &ap);
 	// else if (str[1] == 'X')
 	// 	print_len += ft_print_X(str[1], &ap);
 	else
 		print_len += write(1, "%", 1);
+	return (print_len);
 }
 
 int	ft_input_check(const char *str)
@@ -50,7 +54,7 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
 	int		idx;
-	ssize_t	len;
+	int		len;
 
 	va_start(ap, str);
 	if (!ft_input_check(str))
