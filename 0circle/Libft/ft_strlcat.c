@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:45:48 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/19 17:36:52 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/24 16:25:01 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	idx = 0;
 	dstlen = ft_strlen(dst);
 	srclen = ft_strlen(src);
-	while (src[srclen] != '\0')
-		srclen++;
 	if (dstsize > dstlen)
 	{
 		while (idx < (dstsize - dstlen - 1) && src[idx] != '\0')
