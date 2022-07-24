@@ -6,11 +6,11 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 19:10:56 by gaeokim           #+#    #+#              #
-#    Updated: 2022/07/21 16:33:26 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/07/24 14:05:02 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
@@ -72,7 +72,7 @@ endif
 
 all : $(NAME)
 
-.c.o :
+.c.o : $(HEADER)
 	$(CC) $(CFLAG) -c $< -o $@
 
 $(NAME) : $(OBJS_F)
