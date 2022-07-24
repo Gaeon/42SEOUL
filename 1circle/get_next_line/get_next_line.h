@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:41:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/21 17:25:16 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/21 17:38:27 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@
 # endif
 
 char	*get_next_line(int fd);
+
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif

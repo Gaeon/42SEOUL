@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/21 17:07:36 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/21 17:53:00 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/07/21 17:56:14 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/07/21 18:00:39 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <fcntl.h>
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+int	main(void)
 {
-	static char	s_buff[BUFFER_SIZE + 1];
-	char		*buff;
+	char	*line;
+	char	*ret;
+	int		fd;
 
-	if (fd == 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
-		return (0);
-	while (ft_strchr(buff, '\n') != 0)
+	fd = open("gnl.txt", O_RDONLY);
+	while ((ret = get_next_line(fd)) > 0)
 	{
-		read(fd, buff, BUFFER_SIZE);	
+		printf("line = %s\n", line);
+		free(line);
 	}
-	return (0);
+	free(line);
 }
