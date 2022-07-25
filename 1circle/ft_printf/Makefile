@@ -5,12 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/05 19:10:56 by gaeokim           #+#    #+#              #
-#    Updated: 2022/07/25 13:09:06 by gaeokim          ###   ########.fr        #
+#    Created: 2022/07/25 15:24:47 by gaeokim           #+#    #+#              #
+#    Updated: 2022/07/25 15:24:51 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
@@ -22,32 +23,20 @@ SRCS = 	./ft_printf.c \
 		./ft_printf_format.c
 OBJS = $(SRCS:.c=.o)
 
-SRCS_BONUS = 
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-
-ifdef BONUS
-	OBJS_F = $(OBJS) $(OBJS_BONUS)
-else
-	OBJS_F = $(OBJS)
-endif
-
 all : $(NAME)
 
 .c.o :
 	$(CC) $(CFLAG) -c $< -o $@
 
-$(NAME) : $(OBJS_F)
-	ar rc $(NAME) $(OBJS_F)
-
-bonus :
-	make BONUS=1 all
+$(NAME) : $(OBJS)
+	ar rc $(NAME) $(OBJS)
 
 clean :
-	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -f $(OBJS)
 
 fclean :	clean
 	rm -f $(NAME)
 
 re :	fclean all
 
-.PHONY : all bonus clean fclean re
+.PHONY : all clean fclean re
