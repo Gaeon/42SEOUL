@@ -5,28 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 12:12:08 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/22 12:46:19 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/07/25 12:00:42 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/07/25 15:18:07 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	char	chr;
-
-	chr = (char)c;
-	while (*s != '\0')
-	{
-		if (*s == chr)
-			return ((char *)s);
-		s++;
-	}
-	if (chr == '\0')
-		return ((char *)s);
-	return (0);
-}
 
 size_t	ft_strlen(const char *s)
 {
@@ -38,57 +22,71 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-static int	ft_numlen(long l_n, long sign)
+int	ft_strchr(const char *s, char c)
 {
-	int	len;
-
-	len = 0;
-	if (sign == -1)
-		len++;
-	while (l_n > 0)
+	while (*s != '\0')
 	{
-		l_n /= 10;
-		len++;
+		if (*s == c)
+			return (1);
+		s++;
 	}
-	return (len);
+	return (0);
 }
 
-char	*ft_fill_str(int len, long sign, long l_n)
+int	ft_putnbr(int nb)
 {
-	char	*nbr;
+	char	c;
+	int		print_len;
 
-	nbr = (char *)malloc(sizeof(char) * (len + 1));
-	if (nbr == 0)
-		return (0);
-	nbr[len] = '\0';
-	len--;
-	if (l_n == 0)
-		sign = 1;
-	while (len >= 0)
+	print_len = 0;
+	if (nb == -2147483648)
+		return (write(1, "-2147483648", 11));
+	if (nb < 0)
 	{
-		if (len == 0 && sign == -1)
-		{
-			nbr[len] = '-';
-			return (nbr);
-		}
-		nbr[len] = l_n % 10 + '0';
-		l_n /= 10;
-		len--;
+		nb = -nb;
+		print_len += write(1, "-", 1);
 	}
-	return (nbr);
-}
-
-char	*ft_itoa(int n)
-{
-	int		len;
-	long	sign;
-	long	l_n;
-
-	l_n = (long)n;
-	if (l_n <= 0)
-		sign = -1;
+	if (nb < 10)
+	{
+		c = nb + '0';
+		print_len += write (1, &c, 1);
+	}
 	else
-		sign = 1;
-	len = ft_numlen(l_n * sign, sign);
-	return (ft_fill_str(len, sign, l_n * sign));
+	{
+		print_len += ft_putnbr(nb / 10);
+		print_len += ft_putnbr(nb % 10);
+	}
+	return (print_len);
+}
+
+int	ft_putnbr_ux(const char *base, unsigned int nb)
+{
+	int	base_len;
+	int	print_len;
+
+	base_len = ft_strlen(base);
+	print_len = 0;
+	if (nb < base_len)
+		print_len += write(1, &base[nb], 1);
+	else
+	{
+		print_len += ft_putnbr_ux(base, nb / base_len);
+		print_len += ft_putnbr_ux(base, nb % base_len);
+	}
+	return (print_len);
+}
+
+int	ft_putnbr_p(unsigned long long nb)
+{
+	int	print_len;
+
+	print_len = 0;
+	if (nb < 16)
+		print_len += write (1, &"0123456789abcdef"[nb], 1);
+	else
+	{
+		print_len += ft_putnbr_p(nb / 16);
+		print_len += ft_putnbr_p(nb % 16);
+	}
+	return (print_len);
 }
