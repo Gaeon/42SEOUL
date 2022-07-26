@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/26 18:50:29 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/26 19:01:46 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*ft_clear(char *temp)
 	}
 	return (0);
 }
+
+//abcde\n
 
 char	*ft_read(int fd, char *buff, char *backup)
 {
