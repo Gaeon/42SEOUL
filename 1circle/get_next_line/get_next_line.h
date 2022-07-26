@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:41:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/26 14:40:08 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/07/26 18:53:29 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,16 @@
 # endif
 
 //get_next_line.c
+char	*ft_split(char *read_line);
+char	*ft_clear(char *backup);
+char	*ft_read(int fd, char *buff, char *backup);
+char	*get_next_line(int fd);
 
 //get_next_line_util.c
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
