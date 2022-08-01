@@ -22,7 +22,7 @@ int	ft_input_check(const char *str)
 		if (str[idx] == '%')
 		{
 			if (!ft_strchr("cspdiuxX%", str[++idx]))
-				return (-1);
+				return (0);
 		}
 		idx++;
 	}
@@ -66,4 +66,15 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (len);
+}
+
+#include <stdio.h>
+int main()
+{
+	ft_printf("%d %d", 100, 9);
+	printf("\n");
+	ft_printf("%s %c %X %x %% %d good bye~!", "ft_printf_test", 'x', 15, 15, 100);
+	printf("\n");
+	printf("%s %c %X %x %% %d good bye~!", "ft_printf_test", 'x', 15, 15, 100);
+	printf("\n");
 }

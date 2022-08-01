@@ -61,8 +61,8 @@ int	ft_putnbr(int nb)
 
 int	ft_putnbr_ux(const char *base, unsigned int nb)
 {
-	int	base_len;
-	int	print_len;
+	unsigned int	base_len;
+	int				print_len;
 
 	base_len = ft_strlen(base);
 	print_len = 0;

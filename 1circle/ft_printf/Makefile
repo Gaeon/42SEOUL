@@ -26,7 +26,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 .c.o :
-	$(CC) $(CFLAG) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
 	ar rc $(NAME) $(OBJS)
