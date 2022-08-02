@@ -6,15 +6,15 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/26 19:01:46 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/02 15:59:34 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_split(char *temp)
+char	*ft_backup(char *temp)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (temp[i])
@@ -26,7 +26,7 @@ char	*ft_split(char *temp)
 	return (0);
 }
 
-char	*ft_clear(char *temp)
+char	*ft_line(char *temp)
 {
 	int	i;
 
@@ -39,8 +39,6 @@ char	*ft_clear(char *temp)
 	}
 	return (0);
 }
-
-//abcde\n
 
 char	*ft_read(int fd, char *buff, char *backup)
 {
@@ -70,8 +68,8 @@ char	*ft_read(int fd, char *buff, char *backup)
 
 char	*get_next_line(int fd)
 {
-	char		*buff;
 	static char	*backup;
+	char		*buff;
 	char		*temp;
 
 	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
@@ -80,7 +78,8 @@ char	*get_next_line(int fd)
 	if (!buff)
 		return (0);
 	temp = ft_read(fd, buff, backup);
-	backup = ft_clear(temp);
 	free(buff);
-	return (ft_split(temp));
+	backup = ft_backup(temp);
+	temp = ft_line(temp);
+	return (temp);
 }
