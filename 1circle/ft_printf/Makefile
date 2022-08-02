@@ -6,10 +6,9 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 15:24:47 by gaeokim           #+#    #+#              #
-#    Updated: 2022/07/25 15:24:51 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/08/02 10:17:07 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

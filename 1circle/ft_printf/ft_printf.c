@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:34:17 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/25 15:18:15 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/02 10:16:01 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (len);
-}
-
-#include <stdio.h>
-int main()
-{
-	ft_printf("%d %d", 100, 9);
-	printf("\n");
-	ft_printf("%s %c %X %x %% %d good bye~!", "ft_printf_test", 'x', 15, 15, 100);
-	printf("\n");
-	printf("%s %c %X %x %% %d good bye~!", "ft_printf_test", 'x', 15, 15, 100);
-	printf("\n");
 }

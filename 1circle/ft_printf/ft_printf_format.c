@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 12:07:47 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/25 15:18:09 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/02 10:17:19 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_print_p(unsigned long long nbr)
 
 int	ft_print_ux(char c, unsigned int nbr)
 {
-	int			print_len;
+	int	print_len;
 
 	print_len = 0;
 	if (c == 'u')
