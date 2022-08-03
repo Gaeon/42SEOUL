@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/08/02 16:08:35 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/03 12:36:08 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_backup(char *temp)
 			return (ft_substr(temp, 0, i));
 		i++;
 	}
-	return (temp);
+	return (0);
 }
 
 char	*ft_line(char *temp)
@@ -58,6 +58,7 @@ char	*ft_read(int fd, char *buff, char *backup)
 			backup = ft_strdup("");
 		temp = backup;
 		backup = ft_strjoin(temp, buff);
+		free(temp);
 		if (!backup)
 			return (0);
 		if (ft_strchr(backup, '\n'))
