@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/08/07 16:55:44 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/07 17:18:03 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*ft_backup(char *read_line)
 	if (temp[0] == '\0')
 	{
 		free(temp);
+		temp = NULL;
 		return (0);
 	}
 	return (temp);
