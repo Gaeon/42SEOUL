@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:41:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/07/26 18:53:29 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/07 14:58:27 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 # endif
 
 //get_next_line.c
-char	*ft_split(char *read_line);
-char	*ft_clear(char *backup);
-char	*ft_read(int fd, char *buff, char *backup);
+char	*ft_backup(char *read_line);
+char	*ft_line(char *read_line);
+char	*ft_read(int fd, char *read_line, char *buffer);
 char	*get_next_line(int fd);
 
 //get_next_line_util.c
