@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/08/07 16:32:57 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/07 16:55:44 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ char	*ft_backup(char *read_line)
 	while (read_line[idx])
 	{
 		if (read_line[idx] == '\n')
-		{
-			temp = ft_substr(read_line, idx + 1, ft_strlen(read_line) - idx);
 			break ;
-		}
 		idx++;
 	}
+	temp = ft_substr(read_line, idx + 1, ft_strlen(read_line) - idx);
 	if (read_line[idx] == '\0' || !temp)
 		return (0);
 	if (temp[0] == '\0')
@@ -34,25 +32,6 @@ char	*ft_backup(char *read_line)
 		free(temp);
 		return (0);
 	}
-	return (temp);
-}
-
-char	*ft_line(char *read_line)
-{
-	int		idx;
-	char	*temp;
-
-	idx = 0;
-	while (read_line[idx])
-	{
-		if (read_line[idx] == '\n')
-		{
-			temp = ft_substr(read_line, 0, idx + 1);
-			break ;
-		}
-	}
-	if (read_line[idx] == '\0' || !temp)
-		return (0);
 	return (temp);
 }
 
@@ -67,7 +46,7 @@ char	*ft_read(int fd, char *backup, char *buffer)
 		read_byte = read(fd, buffer, BUFFER_SIZE);
 		if (read_byte == 0)
 			break ;
-		else if (read_byte == -1)
+		if (read_byte == -1)
 			return (0);
 		buffer[read_byte] = '\0';
 		if (!backup)
@@ -78,7 +57,7 @@ char	*ft_read(int fd, char *backup, char *buffer)
 		if (!backup)
 			return (0);
 		if (ft_strchr(backup, '\n'))
-			return (backup);
+			break ;
 	}
 	return (backup);
 }
@@ -99,5 +78,5 @@ char	*get_next_line(int fd)
 		return (0);
 	free(buffer);
 	backup = ft_backup(read_line);
-	return (ft_line(read_line));
+	return (read_line);
 }
