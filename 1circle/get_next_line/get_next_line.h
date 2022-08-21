@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:41:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/08/07 16:55:42 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/21 13:17:51 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>	//open
-# include <limits.h>	// OPEN_MAX
+# include <limits.h>	//OPEN_MAX
 # include <stdlib.h>	//malloc, free
 
 # ifndef BUFFER_SIZE
