@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/08/21 13:15:10 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/09/04 18:12:34 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,39 @@ char	*ft_backup(char *read_line)
 			break ;
 		idx++;
 	}
+	if (read_line[idx] == '\0')
+		return (0);
 	temp = ft_substr(read_line, idx + 1, ft_strlen(read_line) - idx);
-	if (read_line[idx] == '\0' || !temp)
+	if (!temp)
 		return (0);
 	if (temp[0] == '\0')
 	{
 		free(temp);
+		temp = 0;
 		return (0);
 	}
+	read_line[idx + 1] = '\0';
+	return (temp);
+}
+
+char	*ft_line(char *read_line)
+{
+	int		idx;
+	char	*temp;
+
+	idx = 0;
+	while (read_line[idx])
+	{
+		if (read_line[idx] == '\n')
+			break ;
+		idx++;
+	}
+	if (read_line[idx] == '\0')
+		return (read_line);
+	temp = ft_substr(read_line, 0, idx + 1);
+	if (!temp)
+		return (0);
+	temp[idx + 1] = '\0';
 	return (temp);
 }
 
@@ -53,9 +78,10 @@ char	*ft_read(int fd, char *backup, char *buffer)
 			backup = ft_strdup("");
 		temp = backup;
 		backup = ft_strjoin(temp, buffer);
-		free(temp);
 		if (!backup)
 			return (0);
+		free(temp);
+		temp = 0;
 		if (ft_strchr(backup, '\n'))
 			break ;
 	}
@@ -74,9 +100,27 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (0);
 	read_line = ft_read(fd, backup, buffer);
+	free(buffer);
+	buffer = 0;
 	if (!read_line)
 		return (0);
-	free(buffer);
 	backup = ft_backup(read_line);
 	return (read_line);
 }
+
+// #include <stdio.h>
+// #include <fcntl.h>
+// #include <signal.h>
+
+
+// int main()
+// {
+// 	int fd;
+// 	fd = open("./test.txt", O_RDWR);
+// 	char *str = get_next_line(fd);
+// 	printf("%s", str);
+// 	while (1)
+// 		;
+// 	// system("leaks a.out");
+// 	return (0);
+// }
