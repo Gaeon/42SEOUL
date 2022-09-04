@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/09/04 18:12:34 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/09/04 18:25:08 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,6 @@ char	*ft_backup(char *read_line)
 		return (0);
 	}
 	read_line[idx + 1] = '\0';
-	return (temp);
-}
-
-char	*ft_line(char *read_line)
-{
-	int		idx;
-	char	*temp;
-
-	idx = 0;
-	while (read_line[idx])
-	{
-		if (read_line[idx] == '\n')
-			break ;
-		idx++;
-	}
-	if (read_line[idx] == '\0')
-		return (read_line);
-	temp = ft_substr(read_line, 0, idx + 1);
-	if (!temp)
-		return (0);
-	temp[idx + 1] = '\0';
 	return (temp);
 }
 
@@ -111,7 +90,6 @@ char	*get_next_line(int fd)
 // #include <stdio.h>
 // #include <fcntl.h>
 // #include <signal.h>
-
 
 // int main()
 // {
