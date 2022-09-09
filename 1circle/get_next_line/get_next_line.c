@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/09/04 18:25:08 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:23:00 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,5 @@ char	*get_next_line(int fd)
 	return (read_line);
 }
 
-// #include <stdio.h>
-// #include <fcntl.h>
-// #include <signal.h>
 
-// int main()
-// {
-// 	int fd;
-// 	fd = open("./test.txt", O_RDWR);
-// 	char *str = get_next_line(fd);
-// 	printf("%s", str);
-// 	while (1)
-// 		;
-// 	// system("leaks a.out");
-// 	return (0);
-// }
+#include <stdio.h>
