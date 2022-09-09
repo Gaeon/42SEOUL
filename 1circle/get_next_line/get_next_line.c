@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:23:22 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/09/09 16:23:00 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:24:23 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,3 @@ char	*get_next_line(int fd)
 	backup = ft_backup(read_line);
 	return (read_line);
 }
-
-
-#include <stdio.h>
