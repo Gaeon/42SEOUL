@@ -6,11 +6,11 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 12:07:47 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/08/02 10:17:19 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/09/25 16:18:27 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "minitalk.h"
 
 int	ft_print_c(int c)
 {

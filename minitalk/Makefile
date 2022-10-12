@@ -6,33 +6,47 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 13:11:31 by gaeokim           #+#    #+#              #
-#    Updated: 2022/09/19 13:12:42 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/09/25 18:42:13 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = 
+NAME = minitalk
+SERVER = server
+CLIENT = client
 
-HEADER  = 
+HEADER  = ./minitalk.h
 
-SRCS = 	
-OBJS = $(SRCS:.c=.o)
+S_SRCS =	./server.c \
+			./ft_printf.c \
+			./ft_printf_util.c \
+			./ft_printf_format.c
+S_OBJS = $(S_SRCS:.c=.o)
+
+C_SRCS =	./client.c \
+			./util.c
+C_OBJS =	$(C_SRCS:.c=.o)
 
 all : $(NAME)
+
+$(NAME) : $(SERVER) $(CLIENT)
 
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(SERVER): $(S_OBJS)
+	$(CC) $(S_OBJS) -o $(SERVER)
+
+$(CLIENT): $(C_OBJS)
+	$(CC) $(C_OBJS) -o $(CLIENT)
 
 clean :
-	rm -f $(OBJS)
+	rm -f $(S_OBJS) $(C_OBJS)
 
 fclean :	clean
-	rm -f $(NAME)
+	rm -f $(SERVER) $(CLIENT)
 
 re :	fclean all
 
