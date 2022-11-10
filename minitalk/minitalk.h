@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:08:26 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/09/25 18:38:57 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/10/31 16:16:01 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_handler(int signum);
 void	client(pid_t pid, char *str);
 
 // util.c
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 
 //ft_printf.c
 int		ft_input_check(const char *str);
