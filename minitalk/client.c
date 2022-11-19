@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 17:21:42 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/11/19 09:31:38 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/11/19 09:53:28 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ void	client(pid_t pid, char *str)
 			if ((*str >> idx & 1) == 1)
 			{
 				kill(pid, SIGUSR1);
-				usleep(10);
+				usleep(100);
 			}
 			else
 			{
 				kill(pid, SIGUSR2);
-				usleep(10);
+				usleep(100);
 			}
 			idx++;
 		}
 		str++;
-		usleep(10);
+		usleep(100);
 	}
 }
 
