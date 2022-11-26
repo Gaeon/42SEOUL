@@ -6,45 +6,42 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 14:37:06 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/11/19 09:40:42 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/11/26 21:20:05 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static int	g_idx[2];
-
 void	sig_handler(int signo)
 {
-	int	n;
-	int	m;
+	static int	num;
+	static int	cnt;
+	int			idx;
+	int			digit;
 
-	n = 0;
-	m = 1;
-	while (n < g_idx[1])
+	idx = 0;
+	digit = 1;
+	while (idx < cnt)
 	{
-		m *= 2;
-		n++;
+		digit *= 2;
+		idx++;
 	}
 	if (signo == SIGUSR1)
-		g_idx[0] += m;
-	else if (signo == SIGUSR2)
-		;
-	g_idx[1]++;
-	if (g_idx[1] == 8)
+		num += digit;
+	cnt++;
+	if (cnt == 8)
 	{
-		ft_printf("%c", g_idx[0]);
-		g_idx[1] = 0;
-		g_idx[0] = 0;
+		ft_printf("%c", num);
+		cnt = 0;
+		num = 0;
 	}
 }
 
 int	main(void)
 {
 	ft_printf("server pid : %d\n", getpid());
-	if (signal(SIGUSR1, (void *)sig_handler)
-		|| signal(SIGUSR2, (void *)sig_handler))
-		;
+	signal(SIGUSR1, (void *)sig_handler);
+	signal(SIGUSR2, (void *)sig_handler);
 	while (1)
 		usleep(1);
 	return (0);
