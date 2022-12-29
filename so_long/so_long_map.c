@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:08:08 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/12/29 15:25:59 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/12/29 16:51:37 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,33 +71,68 @@ int	component_check(t_game *game)
 {
 	int	idx;
 
-	idx = 0;
-	game->collectible = 0;
-	game->exit = 0;
-	game->position = 0;
-	while (game->map[idx] != '\0')
+	idx = -1;
+	while (game->map[++idx] != '\0')
 	{
 		if (game->map[idx] == 'C')
-			game->collectible++;
+			game->collect++;
 		else if (game->map[idx] == 'E')
-			game->exit++;
+		{
+			if (game->exit != -1)
+				return (-1);
+			game->exit = idx;
+		}
 		else if (game->map[idx] == 'P')
-			game->position++;
-		idx++;
+		{
+			if (game->position != -1)
+				return (-1);
+			game->position = idx;
+		}
 	}
-	if (game->collectible < 1 || game->exit != 1 || game->position != 1)
+	if (game->collect < 1 || game->exit == -1 || game->position == -1)
 		return (-1);
 	return (1);
 }
 
-int	root_check(t_game *game)
-{
-	return (1);
-}
+// int	root_check(t_game *game)
+// {
+// 	return (1);
+// }
 
 int	map_check(t_game *game)
 {
 	if (wall_check(game) == -1 || component_check(game) == -1)
 		return (-1);
 	return (1);
+}
+
+void	draw_map(t_game game, t_image img)
+{
+	int		hei;
+	int		wid;
+
+	hei = 0;
+	while (hei < game.height)
+	{
+		wid = 0;
+		while (wid < game.width)
+		{
+			mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
+				img.empty, wid * 64, hei * 64);
+			if (game.map[hei * game.width + wid] == '1')
+				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
+					img.wall, wid * 64, hei * 64);
+			else if (game.map[hei * game.width + wid] == 'C')
+				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
+					img.collect, wid * 64, hei * 64);
+			else if (game.map[hei * game.width + wid] == 'P')
+				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
+					img.player, wid * 64, hei * 64);
+			else if (game.map[hei * game.width + wid] == 'E')
+				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
+					img.exit, wid * 64, hei * 64);
+			wid++;
+		}
+		hei++;
+	}
 }

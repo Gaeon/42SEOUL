@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:32:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/12/29 15:23:48 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/12/29 16:59:39 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # include <fcntl.h>
 
-# include "./minilibx_opengl_20191021/mlx.h"
+# include "./minilibx-linux/mlx.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
@@ -37,17 +37,31 @@
 # define KEY_S			1
 # define KEY_D			2
 
+typedef struct s_player{
+	int	position;
+	int	move;
+	int	collect;
+}	t_player;
+
+typedef struct s_image{
+	void	*empty;
+	void	*wall;
+	void	*collect;
+	void	*player;
+	void	*exit;
+	int		width;
+	int		height;
+}	t_image;
+
 typedef struct s_game{
 	void	*mlx_ptr;
 	void	*win_ptr;
-	int		height;
 	int		width;
+	int		height;
 	char	*map;
-	int		collectible;
+	int		collect;
 	int		exit;
 	int		position;
-	int		x;
-	int		y;
 }	t_game;
 
 //ft_printf.c
@@ -75,11 +89,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 //so_long_util.c
 size_t	ft_strlen_without_newline(const char *s);
 
+//so_long_init.c
+void	init_game(t_game *game);
+void	init_param(t_game *game, t_player *param);
+void	init_image(t_game *game, t_image *image);
+
 //so_long_map.c
 int		map_read(char *filename, t_game *game);
 int		wall_check(t_game *game);
 int		component_check(t_game *game);
 int		root_check(t_game *game);
 int		map_check(t_game *game);
+void	draw_map(t_game game, t_image img);
 
 #endif
