@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 19:31:58 by gaeokim           #+#    #+#              #
-#    Updated: 2022/12/29 13:04:19 by gaeokim          ###   ########.fr        #
+#    Updated: 2022/12/29 16:58:21 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = 	./so_long.c				\
 OBJS = $(SRCS:.c=.o)
 
 MLX = mlx
-MLX_DIR = ./minilibx_opengl_20191021
+MLX_DIR = ./minilibx-linux
 
 $(NAME) : $(OBJS)
 	$(MAKE) -C $(MLX_DIR) all
