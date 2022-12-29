@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_util.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 20:04:10 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/12/29 15:15:16 by gaeokim          ###   ########.fr       */
+/*   Created: 2022/12/29 12:54:39 by gaeokim           #+#    #+#             */
+/*   Updated: 2022/12/29 14:03:07 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_strlen_without_newline(const char *s)
 {
-	t_game	game;
+	size_t	len;
 
-	if (argc != 2)
-	{
-		ft_printf("Error! No Map Input");
-		return (0);
-	}
-	if (map_read(argv[1], &game) == -1 || map_check(&game) == -1)
-	{
-		ft_printf("Error! Map is not valid");
-		return (0);
-	}
-
-	return (0);
+	len = 0;
+	while (s[len] != '\n' && s[len] != '\0')
+		len++;
+	return (len);
 }
