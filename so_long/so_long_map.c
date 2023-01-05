@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:08:08 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/12/29 16:51:37 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/12/29 18:23:23 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,6 @@ int	component_check(t_game *game)
 	return (1);
 }
 
-// int	root_check(t_game *game)
-// {
-// 	return (1);
-// }
-
 int	map_check(t_game *game)
 {
 	if (wall_check(game) == -1 || component_check(game) == -1)
@@ -111,11 +106,11 @@ void	draw_map(t_game game, t_image img)
 	int		hei;
 	int		wid;
 
-	hei = 0;
-	while (hei < game.height)
+	hei = -1;
+	while (++hei < game.height)
 	{
-		wid = 0;
-		while (wid < game.width)
+		wid = -1;
+		while (++wid < game.width)
 		{
 			mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
 				img.empty, wid * 64, hei * 64);
@@ -131,8 +126,6 @@ void	draw_map(t_game game, t_image img)
 			else if (game.map[hei * game.width + wid] == 'E')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
 					img.exit, wid * 64, hei * 64);
-			wid++;
 		}
-		hei++;
 	}
 }

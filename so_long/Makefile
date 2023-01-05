@@ -3,46 +3,42 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
+#    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 19:31:58 by gaeokim           #+#    #+#              #
-#    Updated: 2022/12/29 16:58:21 by gaeokim          ###   ########.fr        #
+#    Updated: 2023/01/05 17:54:48 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
+SRC = ./main.c				\
+		./so_long_init.c		\
+		./so_long_map.c			\
+		./so_long_util.c		\
+		printf/ft_printf.c			\
+		printf/ft_printf_util.c		\
+		gnl/get_next_line.c		\
+		gnl/get_next_line_util.c	\
+		./mlx_key.c
+OBJS = $(SRC:.c=.o)
 NAME = so_long
 
-HEADER  = ./so_long.h
+all : ${NAME}
 
-SRCS = 	./so_long.c				\
-		./so_long_util.c		\
-		./ft_printf.c			\
-		./ft_printf_util.c		\
-		./get_next_line.c		\
-		./get_next_line_util.c	\
-OBJS = $(SRCS:.c=.o)
-
-MLX = mlx
-MLX_DIR = ./minilibx-linux
-
-$(NAME) : $(OBJS)
-	$(MAKE) -C $(MLX_DIR) all
-	$(CC) $(CFLAGS) -L$(MLX_DIR) -l $(MLX) -framework OpenGL -framework AppKit $< -o $@
-
-.c.o :
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -c $< -o $@
+${NAME} : ${OBJS}
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -lmlx -framework OpenGL -framework AppKit
 	
-all : $(NAME)
-
+%.o : %.c
+	$(CC) $(CFAGS) -c $< -o $@
+	
 clean :
-	rm -f $(OBJS)
+	rm -rf $(OBJS)
 
-fclean :	clean
-	rm -f $(NAME)
+fclean : clean
+	rm -rf ${NAME}
 
-re :	fclean all
+re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re

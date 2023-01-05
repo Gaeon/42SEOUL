@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:32:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/12/29 16:59:39 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/05 17:48:39 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <fcntl.h>
+# include <mlx.h>
 
-# include "./minilibx-linux/mlx.h"
+# include "gnl/get_next_line.h"
+# include "printf/ft_printf.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
@@ -64,30 +66,8 @@ typedef struct s_game{
 	int		position;
 }	t_game;
 
-//ft_printf.c
-int		ft_format(char c, va_list ap);
-int		ft_printf(const char *str, ...);
-int		ft_print_c(int c);
-int		ft_print_s(char *str);
-int		ft_print_di(int nbr);
-
-//get_next_line.c
-char	*ft_backup(char *read_line);
-char	*ft_read(int fd, char *read_line, char *buffer);
-char	*get_next_line(int fd);
-
-//ft_printf_util.c
-size_t	ft_strlen(const char *s);
-int		ft_putnbr(int nb);
-
-//get_next_line_util.c
-char	*ft_strdup(const char *src);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
 //so_long_util.c
-size_t	ft_strlen_without_newline(const char *s);
+int		ft_strlen_without_newline(const char *s);
 
 //so_long_init.c
 void	init_game(t_game *game);
