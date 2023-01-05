@@ -3,25 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
+#    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 19:31:58 by gaeokim           #+#    #+#              #
-#    Updated: 2023/01/05 17:54:48 by hyerimki         ###   ########.fr        #
+#    Updated: 2023/01/05 18:11:22 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ./main.c				\
-		./so_long_init.c		\
-		./so_long_map.c			\
-		./so_long_util.c		\
+SRC = ./main.c						\
+		./so_long_init.c			\
+		./so_long_map.c				\
+		./so_long_util.c			\
+		./mlx.c						\
 		printf/ft_printf.c			\
 		printf/ft_printf_util.c		\
-		gnl/get_next_line.c		\
-		gnl/get_next_line_util.c	\
-		./mlx_key.c
+		gnl/get_next_line.c			\
+		gnl/get_next_line_util.c
 OBJS = $(SRC:.c=.o)
 NAME = so_long
 
