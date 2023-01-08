@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:08:08 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/12/29 18:23:23 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/08 16:43:06 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,16 +114,16 @@ void	draw_map(t_game game, t_image img)
 		{
 			mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
 				img.empty, wid * 64, hei * 64);
-			if (game.map[hei * game.width + wid] == '1')
+			if (game.map[hei * (game.width + 1) + wid] == '1')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
 					img.wall, wid * 64, hei * 64);
-			else if (game.map[hei * game.width + wid] == 'C')
+			else if (game.map[hei * (game.width + 1) + wid] == 'C')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
 					img.collect, wid * 64, hei * 64);
-			else if (game.map[hei * game.width + wid] == 'P')
+			else if (game.map[hei * (game.width + 1) + wid] == 'P')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
 					img.player, wid * 64, hei * 64);
-			else if (game.map[hei * game.width + wid] == 'E')
+			else if (game.map[hei * (game.width + 1) + wid] == 'E')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
 					img.exit, wid * 64, hei * 64);
 		}

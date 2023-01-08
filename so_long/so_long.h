@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:32:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/05 17:48:39 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:57:11 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		ft_strlen_without_newline(const char *s);
 //so_long_init.c
 void	init_game(t_game *game);
 void	init_param(t_game *game, t_player *param);
-void	init_image(t_game *game, t_image *image);
+void	init_image(t_game game, t_image *image);
 
 //so_long_map.c
 int		map_read(char *filename, t_game *game);
@@ -81,5 +81,12 @@ int		component_check(t_game *game);
 int		root_check(t_game *game);
 int		map_check(t_game *game);
 void	draw_map(t_game game, t_image img);
+
+//mlx.c
+int		key_press(int keycode, t_game *game, t_player *param);
+void	move_w(t_game *game, t_player *param);
+void	move_a(t_game *game, t_player *param);
+void	move_s(t_game *game, t_player *param);
+void	move_d(t_game *game, t_player *param);
 
 #endif
