@@ -6,14 +6,14 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 19:31:58 by gaeokim           #+#    #+#              #
-#    Updated: 2023/01/05 18:11:22 by gaeokim          ###   ########.fr        #
+#    Updated: 2023/01/08 15:03:54 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ./main.c						\
+SRC =	./so_long.c					\
 		./so_long_init.c			\
 		./so_long_map.c				\
 		./so_long_util.c			\
