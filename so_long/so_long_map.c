@@ -6,13 +6,13 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:08:08 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/08 18:47:53 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/11 16:01:56 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	map_read(char *filename, t_game *game)
+void	map_read(char *filename, t_game *game)
 {
 	int		fd;
 	char	*line;
@@ -29,13 +29,16 @@ int	map_read(char *filename, t_game *game)
 		if (line)
 		{
 			if (game->width != ft_strlen_without_newline(line))
-				return (-1);
+			{
+				ft_printf("Error! Map is not ractangle!\n");
+				close(fd);
+				exit(0);
+			}
 			game->map = ft_strjoin(game->map, line);
 			game->height++;
 		}
 	}
 	close(fd);
-	return (1);
 }
 
 int	wall_check(t_game *game)
@@ -76,32 +79,39 @@ int	component_check(t_game *game)
 	{
 		if (game->map[idx] == 'C')
 			game->collect++;
-		else if (game->map[idx] == 'E')
-		{
-			if (game->exit != -1)
-				return (-1);
+		else if (game->map[idx] == 'E' && game->exit == -1)
 			game->exit = idx;
-		}
-		else if (game->map[idx] == 'P')
-		{
-			if (game->position != -1)
-				return (-1);
+		else if (game->map[idx] == 'P' && game->position == -1)
 			game->position = idx;
-		}
+		else if (game->map[idx] != '\n' && game->map[idx] != '0'
+			&& game->map[idx] != '1')
+			return (-1);
 	}
 	if (game->collect < 1 || game->exit == -1 || game->position == -1)
 		return (-1);
 	return (1);
 }
 
-int	map_check(t_game *game)
+void	map_check(t_game *game)
 {
-	if (wall_check(game) == -1 || component_check(game) == -1)
-		return (-1);
-	return (1);
+	if (wall_check(game) != 1)
+	{
+		ft_printf("Error! Map is not surrounded by walls!\n");
+		exit(0);
+	}
+	if (component_check(game) != 1)
+	{
+		ft_printf("Error! Component Error!\n");
+		exit(0);
+	}
+	if (root_check(game) != 1)
+	{
+		ft_printf("Error! There are no valid path in the map!\n");
+		exit(0);
+	}
 }
 
-void	draw_map(t_game game, t_image img)
+void	draw_map(t_game game)
 {
 	int		hei;
 	int		wid;
@@ -113,19 +123,19 @@ void	draw_map(t_game game, t_image img)
 		while (++wid < game.width)
 		{
 			mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
-				img.empty, wid * 64, hei * 64);
+				game.img_empty, wid * 64, hei * 64);
 			if (game.map[hei * (game.width + 1) + wid] == '1')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
-					img.wall, wid * 64, hei * 64);
+					game.img_wall, wid * 64, hei * 64);
 			else if (game.map[hei * (game.width + 1) + wid] == 'C')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
-					img.collect, wid * 64, hei * 64);
+					game.img_col, wid * 64, hei * 64);
 			else if (game.map[hei * (game.width + 1) + wid] == 'P')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
-					img.player, wid * 64, hei * 64);
+					game.img_player, wid * 64, hei * 64);
 			else if (game.map[hei * (game.width + 1) + wid] == 'E')
 				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
-					img.exit, wid * 64, hei * 64);
+					game.img_exit, wid * 64, hei * 64);
 		}
 	}
 }

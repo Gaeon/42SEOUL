@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:28:01 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/08 16:41:50 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/11 12:56:57 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,23 @@ void	init_game(t_game *game)
 	game->position = -1;
 }
 
-void	init_param(t_game *game, t_player *param)
+void	init_param(t_game *game)
 {
-	param->position = game->position;
-	param->move = 0;
-	param->collect = 0;
+	game->p_move = 0;
+	game->p_col = 0;
 }
 
-void	init_image(t_game game, t_image *image)
+void	init_image(t_game *game)
 {
-	image->empty = mlx_xpm_file_to_image(game.mlx_ptr, "./img/empty.xpm",
-			&image->width, &image->height);
-	image->wall = mlx_xpm_file_to_image(game.mlx_ptr, "./img/wall.xpm",
-			&image->width, &image->height);
-	image->collect = mlx_xpm_file_to_image(game.mlx_ptr, "./img/collect.xpm",
-			&image->width, &image->height);
-	image->player = mlx_xpm_file_to_image(game.mlx_ptr, "./img/player.xpm",
-			&image->width, &image->height);
-	image->exit = mlx_xpm_file_to_image(game.mlx_ptr, "./img/exit.xpm",
-			&image->width, &image->height);
+	game->img_empty = mlx_xpm_file_to_image(game->mlx_ptr, "./img/empty.xpm",
+			&game->img_width, &game->img_height);
+	game->img_wall = mlx_xpm_file_to_image(game->mlx_ptr, "./img/wall.xpm",
+			&game->img_width, &game->img_height);
+	game->img_col = mlx_xpm_file_to_image(game->mlx_ptr, "./img/collect.xpm",
+			&game->img_width, &game->img_height);
+	game->img_player = mlx_xpm_file_to_image(game->mlx_ptr, "./img/player.xpm",
+			&game->img_width, &game->img_height);
+	game->img_exit = mlx_xpm_file_to_image(game->mlx_ptr, "./img/exit.xpm",
+			&game->img_width, &game->img_height);
 }
 
