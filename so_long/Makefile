@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 19:31:58 by gaeokim           #+#    #+#              #
-#    Updated: 2023/01/08 15:03:54 by gaeokim          ###   ########.fr        #
+#    Updated: 2023/01/11 16:04:53 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ SRC =	./so_long.c					\
 		./so_long_init.c			\
 		./so_long_map.c				\
 		./so_long_util.c			\
-		./mlx.c						\
+		./so_long_root_check.c 		\
+		./so_long_move.c			\
+		./so_long_window.c 			\
 		printf/ft_printf.c			\
 		printf/ft_printf_util.c		\
 		gnl/get_next_line.c			\
