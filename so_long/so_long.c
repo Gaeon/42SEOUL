@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:14:10 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/11 16:01:21 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/15 17:05:20 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	extension_check(char *str)
 
 	idx = ft_strlen(str);
 	if (ft_strnstr(&str[idx - 4], ".ber", 4) != 1)
-	{
-		ft_printf("Error! A file is not ending with the .ber extension.\n");
-		exit(0);
-	}
+		error_message(0, 2);
 }
 
 int	main(int argc, char *argv[])
@@ -30,10 +27,7 @@ int	main(int argc, char *argv[])
 
 	init_game(&game);
 	if (argc != 2)
-	{
-		ft_printf("Error! No Map Input\n");
-		return (0);
-	}
+		error_message(0, 1);
 	extension_check(argv[1]);
 	map_read(argv[1], &game);
 	map_check(&game);

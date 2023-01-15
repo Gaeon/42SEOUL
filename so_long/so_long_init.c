@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:28:01 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/11 12:56:57 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/15 14:20:11 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ void	init_image(t_game *game)
 	game->img_exit = mlx_xpm_file_to_image(game->mlx_ptr, "./img/exit.xpm",
 			&game->img_width, &game->img_height);
 }
-

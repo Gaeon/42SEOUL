@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:03:45 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/11 15:18:21 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:41:33 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ int	root_check(t_game *game)
 		visit[idx] = 0;
 	idx = game->position;
 	dfs(game, visit, idx);
-	return (valid_check(game, visit));
+	idx = valid_check(game, visit);
+	free(visit);
+	return (idx);
 }

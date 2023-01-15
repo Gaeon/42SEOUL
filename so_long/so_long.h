@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:32:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/11 15:57:41 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:54:23 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <fcntl.h>
-# include <mlx.h>
 
+# include "mlx/mlx.h"
 # include "gnl/get_next_line.h"
 # include "printf/ft_printf.h"
 
@@ -92,5 +92,6 @@ void	move_d(t_game *game);
 
 //window.c
 int		exit_game(t_game *game);
+void	error_message(int fd, int num);
 
 #endif

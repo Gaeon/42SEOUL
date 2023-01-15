@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:08:08 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/11 16:01:56 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:58:44 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	map_read(char *filename, t_game *game)
 	char	*line;
 
 	fd = open(filename, O_RDONLY);
+	if (fd <= 0)
+		error_message(fd, 3);
 	line = get_next_line(fd);
 	game->height++;
 	game->width = ft_strlen_without_newline(line);
@@ -29,11 +31,7 @@ void	map_read(char *filename, t_game *game)
 		if (line)
 		{
 			if (game->width != ft_strlen_without_newline(line))
-			{
-				ft_printf("Error! Map is not ractangle!\n");
-				close(fd);
-				exit(0);
-			}
+				error_message(fd, 4);
 			game->map = ft_strjoin(game->map, line);
 			game->height++;
 		}
@@ -95,20 +93,11 @@ int	component_check(t_game *game)
 void	map_check(t_game *game)
 {
 	if (wall_check(game) != 1)
-	{
-		ft_printf("Error! Map is not surrounded by walls!\n");
-		exit(0);
-	}
+		error_message(0, 5);
 	if (component_check(game) != 1)
-	{
-		ft_printf("Error! Component Error!\n");
-		exit(0);
-	}
+		error_message(0, 6);
 	if (root_check(game) != 1)
-	{
-		ft_printf("Error! There are no valid path in the map!\n");
-		exit(0);
-	}
+		error_message(0, 7);
 }
 
 void	draw_map(t_game game)
