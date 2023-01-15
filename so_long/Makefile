@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 19:31:58 by gaeokim           #+#    #+#              #
-#    Updated: 2023/01/11 16:04:53 by gaeokim          ###   ########.fr        #
+#    Updated: 2023/01/15 14:12:53 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ NAME = so_long
 all : ${NAME}
 
 ${NAME} : ${OBJS}
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -lmlx -framework OpenGL -framework AppKit
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -Lmlx -lmlx -framework OpenGL -framework AppKit
 	
 %.o : %.c
 	$(CC) $(CFAGS) -c $< -o $@
