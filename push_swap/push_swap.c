@@ -6,15 +6,16 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/01/15 18:44:22 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/15 18:50:15 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv)
+int	main(int argc, char **argv)
 {
-    if (argc != 2)
-		return;
+	t_node	node;
+	if (argc < 3)
+		ft_printf("Argument Error!");
 	
 }
