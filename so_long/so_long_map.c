@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:08:08 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/15 16:58:44 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:38:06 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,24 @@ void	map_read(char *filename, t_game *game)
 
 	fd = open(filename, O_RDONLY);
 	if (fd <= 0)
-		error_message(fd, 3);
+		error_message(game, fd, 3);
 	line = get_next_line(fd);
 	game->height++;
 	game->width = ft_strlen_without_newline(line);
 	game->map = ft_strdup(line);
-	free(line);
 	while (line)
 	{
+		free(line);
 		line = get_next_line(fd);
 		if (line)
 		{
 			if (game->width != ft_strlen_without_newline(line))
-				error_message(fd, 4);
-			game->map = ft_strjoin(game->map, line);
+				error_message(game, fd, 4);
+			game->map = ft_strjoin_free(game->map, line);
 			game->height++;
 		}
 	}
+	free(line);
 	close(fd);
 }
 
@@ -93,11 +94,11 @@ int	component_check(t_game *game)
 void	map_check(t_game *game)
 {
 	if (wall_check(game) != 1)
-		error_message(0, 5);
+		error_message(game, 0, 5);
 	if (component_check(game) != 1)
-		error_message(0, 6);
+		error_message(game, 0, 6);
 	if (root_check(game) != 1)
-		error_message(0, 7);
+		error_message(game, 0, 7);
 }
 
 void	draw_map(t_game game)

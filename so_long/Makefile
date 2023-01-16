@@ -6,12 +6,12 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 19:31:58 by gaeokim           #+#    #+#              #
-#    Updated: 2023/01/15 14:12:53 by gaeokim          ###   ########.fr        #
+#    Updated: 2023/01/16 15:45:21 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SRC =	./so_long.c					\
 		./so_long_init.c			\
@@ -33,7 +33,7 @@ ${NAME} : ${OBJS}
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -Lmlx -lmlx -framework OpenGL -framework AppKit
 	
 %.o : %.c
-	$(CC) $(CFAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean :
 	rm -rf $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:32:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/15 16:54:23 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:35:43 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_game{
 //so_long_util.c
 int		ft_strlen_without_newline(const char *s);
 int		ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*ft_strjoin_free(char *s1, char *s2);
 
 //so_long_init.c
 void	init_game(t_game *game);
@@ -92,6 +93,6 @@ void	move_d(t_game *game);
 
 //window.c
 int		exit_game(t_game *game);
-void	error_message(int fd, int num);
+void	error_message(t_game *game, int fd, int num);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:03:45 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/15 16:41:33 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/16 15:33:52 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	valid_check(t_game *game, int *visit)
 	idx = -1;
 	collect = 0;
 	exit = 0;
-	while (++idx < ft_strlen(game->map))
+	while (++idx < (int)ft_strlen(game->map))
 	{
 		if (visit[idx] == 1)
 		{
@@ -70,7 +70,7 @@ int	root_check(t_game *game)
 
 	idx = -1;
 	visit = (int *)malloc(sizeof(int) * ft_strlen(game->map));
-	while (++idx < ft_strlen(game->map))
+	while (++idx < (int)ft_strlen(game->map))
 		visit[idx] = 0;
 	idx = game->position;
 	dfs(game, visit, idx);

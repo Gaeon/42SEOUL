@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:10:32 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/15 16:58:48 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:31:01 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 int	exit_game(t_game *game)
 {
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	free(game->map);
 	exit(0);
 }
 
-void	error_message(int fd, int num)
+void	error_message(t_game *game, int fd, int num)
 {
 	if (num == 1)
 		ft_printf("Error! No Map Input\n");
@@ -37,5 +38,7 @@ void	error_message(int fd, int num)
 		ft_printf("Error! Component Error!\n");
 	else if (num == 7)
 		ft_printf("Error! There are no valid path in the map!\n");
+	if (num > 3)
+		free(game->map);
 	exit(1);
 }
