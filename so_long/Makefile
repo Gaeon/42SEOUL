@@ -6,12 +6,12 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 19:31:58 by gaeokim           #+#    #+#              #
-#    Updated: 2023/01/16 15:45:21 by gaeokim          ###   ########.fr        #
+#    Updated: 2023/01/17 14:44:57 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 
 SRC =	./so_long.c					\
 		./so_long_init.c			\
