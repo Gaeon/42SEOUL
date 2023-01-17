@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:32:54 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/16 16:35:43 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/17 14:47:08 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <fcntl.h>
 
 # include "mlx/mlx.h"
-# include "gnl/get_next_line.h"
-# include "printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1

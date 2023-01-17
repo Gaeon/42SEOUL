@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:11:58 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/05 18:14:27 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/17 14:46:54 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# include "../printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 32
