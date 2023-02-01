@@ -6,37 +6,39 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:08:43 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/18 13:17:26 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/01/29 14:56:41 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int		idx;
-	int		sign;
-	long	ret;
+	size_t	idx;
+	size_t	srcsize;
 
 	idx = 0;
-	sign = 1;
-	ret = 0;
-	while ((9 <= str[idx] && str[idx] <= 13) || str[idx] == 32)
-		idx++;
-	if (str[idx] == '+' || str[idx] == '-')
+	srcsize = 0;
+	while (src[srcsize] != '\0')
+		srcsize++;
+	if (dstsize != 0)
 	{
-		if (str[idx] == '-')
-			sign = -1;
-		idx++;
+		while (src[idx] && idx < (dstsize - 1))
+		{
+			dst[idx] = src[idx];
+			idx++;
+		}
+		dst[idx] = '\0';
 	}
-	while ('0' <= str[idx] && str[idx] <= '9')
-	{
-		ret = ret * 10 + str[idx] - '0';
-		if (sign == 1 && ret > 2147483647)
-			return (-1);
-		else if (sign == -1 && ret > 2147483648)
-			return (0);
-		idx++;
-	}
-	return ((int)sign * ret);
+	return (srcsize);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }

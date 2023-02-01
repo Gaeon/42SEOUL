@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/01/15 18:44:30 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/02/01 18:49:54 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,27 @@ void	rr(t_info *info);
 void	rra(t_info *info);
 void	rrb(t_info *info);
 void	rrr(t_info *info);
+
+//list_function
+void	ft_lstadd_back_a(t_node *new, t_info *info);
+void	ft_lstadd_back_b(t_node *new, t_info *info);
+void	ft_lstclear_a(t_info *info, void (*del)(void *));
+void	ft_lstdelone(t_node *lst);
+t_node	*ft_lstnew(int data);
+
+//ft_parsing.c
+void	ft_free_error(int *array);
+long	ft_atoi(const char *str);
+int		ft_word_cnt(char const *s);
+void	ft_make(char const *s, int *array);
+int		*ft_split(char const *s);
+
+//util.c
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+
+//push_swap.c
+void	ft_error(int errno);
+int		ft_parsing(char *argv, t_node *node, t_info *info);
 
 #endif
