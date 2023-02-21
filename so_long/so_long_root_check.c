@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_root_check.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:03:45 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/16 15:33:52 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/02/21 13:19:34 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	dfs(t_game *game, int *visit, int pos)
-{
+{	
+	if (game->map[pos] == 'E')
+		return ;
 	if (game->map[pos + 1] != '1' && visit[pos + 1] != 1)
 	{
 		visit[pos + 1] = 1;
