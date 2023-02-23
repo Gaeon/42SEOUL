@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/23 17:31:54 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/02/23 18:38:32 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,23 @@ typedef struct s_info{
 	int size;
 }	t_info;
 
-//operation
+//operation_sx
 void	sa(t_info *info);
 void	sb(t_info *info);
 void	ss(t_info *info);
 
+//operation_px
+void	push_front(t_stack *stack);
+void	push_back(t_stack *stack);
 void	pa(t_info *info);
 void	pb(t_info *info);
 
+//operation_rx
 void	ra(t_info *info);
 void	rb(t_info *info);
 void	rr(t_info *info);
 
+//operation_rrx
 void	rra(t_info *info);
 void	rrb(t_info *info);
 void	rrr(t_info *info);
@@ -69,8 +74,6 @@ void    ft_sort(t_info *info);
 int 	is_stack_sorted(t_info *info, int flag);
 void    sort_duplicate_stack(int *array, int size);
 int 	*duplicate_stack(t_info *info, int flag);
-
-
 
 //util.c
 void	ft_free(char **str);
