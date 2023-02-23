@@ -3,44 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   operation_rrx.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:05:52 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/01/15 18:12:30 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/02/21 15:58:19 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rra(t_info *info)
 {
-	t_node	*temp;
+	int	idx;
+	int	temp;
 
-	if (info->size_a < 2)
-		return ;
-	temp = info->bottom_a;
-	info->bottom_a = temp->prev;
-	info->bottom_a->next = NULL;
-	info->top_a->prev = temp;
-	temp->next = info->top_a;
-	info->top_a = temp;
-	info->top_a->prev = NULL;
+	idx = info->a->size;
+	temp = info->a->arr[info->a->size];
+	while (idx > 0)
+	{
+		info->a->arr[idx] = info->a->arr[idx - 1];
+		idx--;
+	}
+	info->a->arr[idx] = temp;
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_info *info)
 {
-	t_node	*temp;
+	int	idx;
+	int	temp;
 
-	if (info->size_b < 2)
-		return ;
-	temp = info->bottom_b;
-	info->bottom_b = temp->prev;
-	info->bottom_b->next = NULL;
-	info->top_b->prev = temp;
-	temp->next = info->top_b;
-	info->top_b = temp;
-	info->top_b->prev = NULL;
+	idx = info->b->size;
+	temp = info->b->arr[info->b->size];
+	while (idx > 0)
+	{
+		info->b->arr[idx] = info->b->arr[idx - 1];
+		idx--;
+	}
+	info->b->arr[idx] = temp;
 	write(1, "rrb\n", 4);
 }
 

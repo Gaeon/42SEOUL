@@ -6,11 +6,11 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:34:17 by gaeokim           #+#    #+#             */
-/*   Updated: 2022/09/25 16:18:42 by gaeokim          ###   ########.fr       */
+/*   Updated: 2022/08/02 10:16:01 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
 int	ft_input_check(const char *str)
 {

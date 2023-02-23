@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/01 18:49:54 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/02/23 17:31:54 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,21 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-typedef struct s_node{
-	int				data;
-	struct s_node	*prev;
-	struct s_node	*next;
-}	t_node;
+# include "ft_printf/ft_printf.h"
+
+typedef struct s_stack{
+	int	*arr;
+	int	size;
+	int pivot;
+}	t_stack;
 
 typedef struct s_info{
-	int		size_a;
-	int		size_b;
-	t_node	*top_a;
-	t_node	*bottom_a;
-	t_node	*top_b;
-	t_node	*bottom_b;
+	t_stack *a;
+	t_stack *b;
+	int size;
 }	t_info;
 
-//ft_printf.c
-int		ft_input_check(const char *str);
-int		ft_format(char c, va_list ap);
-int		ft_printf(const char *str, ...);
-
-//operation.c
+//operation
 void	sa(t_info *info);
 void	sb(t_info *info);
 void	ss(t_info *info);
@@ -53,26 +47,34 @@ void	rra(t_info *info);
 void	rrb(t_info *info);
 void	rrr(t_info *info);
 
-//list_function
-void	ft_lstadd_back_a(t_node *new, t_info *info);
-void	ft_lstadd_back_b(t_node *new, t_info *info);
-void	ft_lstclear_a(t_info *info, void (*del)(void *));
-void	ft_lstdelone(t_node *lst);
-t_node	*ft_lstnew(int data);
+// parsing
+void	sort_check(t_info *info);
+void 	duplicate_check(t_info *info, int num);
+void	set_stack(int argc, char *argv[], t_info *info);
+void	init_stack(int argc, char *argv[], t_info *info);
 
-//ft_parsing.c
-void	ft_free_error(int *array);
-long	ft_atoi(const char *str);
-int		ft_word_cnt(char const *s);
-void	ft_make(char const *s, int *array);
-int		*ft_split(char const *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+int		ft_word_cnt(char const *s, char c);
+int		ft_make(char const *s, char c, char **array);
+char	**ft_split(char const *s, char c);
+
+int	ft_atoi_check(const char *str, t_info *info);
+
+//algorithm
+void    ft_sort_three_element(t_info *info);
+void	ft_sort_five_element(t_info *info);
+void    element_3_5(t_info *info);
+void    ft_sort(t_info *info);
+
+int 	is_stack_sorted(t_info *info, int flag);
+void    sort_duplicate_stack(int *array, int size);
+int 	*duplicate_stack(t_info *info, int flag);
+
+
 
 //util.c
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+void	ft_free(char **str);
+int		print_error(int type, t_info *info);
 
-//push_swap.c
-void	ft_error(int errno);
-int		ft_parsing(char *argv, t_node *node, t_info *info);
 
 #endif

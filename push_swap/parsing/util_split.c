@@ -1,16 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   util_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 13:58:55 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/02/01 18:53:17 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/02/23 16:09:16 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	idx;
+	size_t	srcsize;
+
+	idx = 0;
+	srcsize = 0;
+	while (src[srcsize] != '\0')
+		srcsize++;
+	if (dstsize != 0)
+	{
+		while (src[idx] && idx < (dstsize - 1))
+		{
+			dst[idx] = src[idx];
+			idx++;
+		}
+		dst[idx] = '\0';
+	}
+	return (srcsize);
+}
 
 int	ft_word_cnt(char const *s, char c)
 {
