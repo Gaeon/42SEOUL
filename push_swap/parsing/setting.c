@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   setting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/23 16:25:47 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:38:43 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void 	duplicate_check(t_info *info, int num)
+void	duplicate_check(t_info *info, int num)
 {
 	int	idx;
 
@@ -28,7 +28,7 @@ void 	duplicate_check(t_info *info, int num)
 void	sort_check(t_info *info)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < info->a->size)
 	{
@@ -45,7 +45,7 @@ void	set_stack(int argc, char *argv[], t_info *info)
 	int		num;
 	int		argc_idx;
 	int		array_idx;
-	int 	split_idx;
+	int		split_idx;
 	char	**split;
 
 	argc_idx = 1;
@@ -76,7 +76,7 @@ void	init_stack(int argc, char *argv[], t_info *info)
 
 	argc_idx = 0;
 	size = 0;
-	while(++argc_idx < argc)
+	while (++argc_idx < argc)
 		size += ft_word_cnt(argv[argc_idx], ' ');
 	info->a->arr = (int *)malloc(sizeof(int) * size);
 	if (info->a->arr == 0)

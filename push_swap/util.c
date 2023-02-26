@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:08:43 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/02/23 16:08:15 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:44:02 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_free(char **str)
 
 int	print_error(int type, t_info *info)
 {
-	if (type == 0) 
+	if (type == 0)
 		return (0);
 	if (type == 1)
 		write(2, "Error! Argument Error\n", 23);

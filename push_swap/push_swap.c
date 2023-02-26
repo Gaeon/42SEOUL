@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/23 17:54:02 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:40:29 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 //Error 부분 Subject 요구사항에 맞게 고치기!!!
 #include <stdio.h>
+
 int	main(int argc, char *argv[])
 {
 	t_info	info;
-	t_stack stack_a;
-	t_stack stack_b;
+	t_stack	stack_a;
+	t_stack	stack_b;
 
 	if (argc < 2)
 		print_error(1, &info);
@@ -27,29 +28,5 @@ int	main(int argc, char *argv[])
 	init_stack(argc, argv, &info);
 	set_stack(argc, argv, &info);
 	ft_sort(&info);
-	
-	for(int i = 0 ; i <= info.a->size ; i++)
-	{
-		printf("%d ", info.a->arr[i]);
-	}
-	// printf("\n");
-	// pb(&info); pb(&info); pb(&info); pb(&info);
-	// printf("\nstack a\n");
-	// for(int i = 0 ; i <= info.a->size ; i++)
-	// {
-	// 	printf("%d ", info.a->arr[i]);
-	// }
-	// printf("\nstack b\n");
-	// for(int i = 0 ; i <= info.b->size ; i++)
-	// {
-	// 	printf("%d ", info.b->arr[i]);
-	// }
-	// pa(&info);
-	// printf("\nstack a\n");
-	// for(int i = 0 ; i <= info.a->size ; i++)
-	// {
-	// 	printf("%d ", info.a->arr[i]);
-	// }
-
 	return (0);
 }

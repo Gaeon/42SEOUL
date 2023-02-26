@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_px.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 17:46:02 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/02/23 18:38:22 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:42:39 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push_front(t_stack *stack)
 {
 	int	idx;
 
-	idx = 0; 
+	idx = 0;
 	while (idx < stack->size)
 	{
 		stack->arr[idx] = stack->arr[idx + 1];
@@ -51,7 +51,6 @@ void	pa(t_info *info)
 		write(1, "pa\n", 3);
 	}
 }
-
 
 void	pb(t_info *info)
 {
