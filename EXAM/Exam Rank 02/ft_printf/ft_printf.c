@@ -102,16 +102,3 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (res);
 }
-
-int main(void)
-{
-	int num = 100;
-	char *str = "abadfwa";
-	char c = 'k';
-	ft_printf("%d\n", num);
-	ft_printf("%s\n", str);
-	ft_printf("%c\n", c);
-	ft_printf("%%");
-	ft_printf("   ab %s %d", str, num);
-	return (0);
-}
