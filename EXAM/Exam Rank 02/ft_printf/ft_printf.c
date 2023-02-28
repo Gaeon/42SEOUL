@@ -58,8 +58,8 @@ int ft_putnbr_hex(unsigned int nbr)
 		res += write(1, &"0123456789abcdef"[nbr], 1);
 	else
 	{
-		res += ft_putnbr_hex(nbr / 10);
-		res += ft_putnbr_hex(nbr % 10);
+		res += ft_putnbr_hex(nbr / 16);
+		res += ft_putnbr_hex(nbr % 16);
 	}
 	return (res);
 }
