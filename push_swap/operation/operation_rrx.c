@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:05:52 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/02/23 18:38:17 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/01 17:20:57 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,29 @@ void	rrb(t_info *info)
 
 void	rrr(t_info *info)
 {
-	rra(info);
-	rrb(info);
+	int	idx_a;
+	int	idx_b;
+	int	temp_a;
+	int	temp_b;
+
+	idx_a = info->a->size;
+	idx_b = info->b->size;
+	temp_a = info->a->arr[info->a->size];
+	temp_b = info->b->arr[info->b->size];
+	while (idx_a > 0 || idx_b > 0)
+	{
+		if (idx_a > 0)
+		{
+			info->a->arr[idx_a] = info->a->arr[idx_a - 1];
+			idx_a--;			
+		}
+		if (idx_b > 0)
+		{
+			info->b->arr[idx_b] = info->b->arr[idx_b - 1];
+			idx_b--;	
+		}
+	}
+	info->a->arr[idx_a] = temp_a;
+	info->b->arr[idx_b] = temp_b;
 	write(1, "rrr\n", 4);
 }

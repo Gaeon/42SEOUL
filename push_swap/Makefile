@@ -6,7 +6,7 @@
 #    By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/22 13:36:31 by marvin            #+#    #+#              #
-#    Updated: 2023/02/23 17:32:17 by gaeon            ###   ########.fr        #
+#    Updated: 2023/03/01 17:53:36 by gaeon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS = 	./push_swap.c 					\
 		./parsing/setting.c 			\
 		./parsing/util_atoi.c 			\
 		./parsing/util_split.c 			\
+		./algorithm/recursive.c			\
+		./algorithm/sort_under_5.c 		\
 		./algorithm/sorting.c 			\
 		./algorithm/util.c 				\
 		./operation/operation_sx.c 		\

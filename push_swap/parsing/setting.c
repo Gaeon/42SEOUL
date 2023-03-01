@@ -3,69 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   setting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/26 17:54:38 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/03/01 14:00:07 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	sort_duplicate_input(t_info *info, int *arr)
-{
-	int	i;
-	int	j;
-	int	temp;
-	int	sorted;
-
-	i = -1;
-	sorted = 0;
-	while (++i < info->size)
-	{
-		j = -1;
-		while (++j < info->size - 1)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
-				sorted++;
-			}
-		}
-		if (arr[i] == arr[i + 1])
-			print_error(8, info);
-	}
-	return (sorted);
-}
-
-int	duplicate_input(t_info *info, int *arr)
+void 	duplicate_check(t_info *info, int num)
 {
 	int	idx;
 
 	idx = 0;
-	while (idx < info->size)
+	while (idx <= info->a->size)
 	{
-		arr[idx] = info->a->arr[idx];
+		if (info->a->arr[idx] == num)
+			print_error(6, info);
 		idx++;
 	}
 }
 
-void	input_check(t_info *info)
-{
-	int	*arr;
-	int	sorted;
+ void	sort_check(t_info *info)
+ {
+ 	int	i;
 
-	arr = (int *)malloc(sizeof(int) * info->size);
-	if (arr == 0)
-		print_error(8, info);
-	duplicate_input(info, arr);
-	sorted = sort_duplicate_input(info, arr);
-	if (sorted == 0)
-		print_error(8, info);
-	info->arr = arr;
-}
+ 	i = 0;
+ 	while (i <= info->a->size)
+ 	{
+ 		if (info->a->arr[i] > info->a->arr[i + 1])
+ 			break ;
+ 		i++;
+ 	}
+ 	if (i == info->a->size)
+ 		print_error(7, info);
+ }
 
 void	set_stack(int argc, char *argv[], t_info *info)
 {
@@ -80,19 +53,19 @@ void	set_stack(int argc, char *argv[], t_info *info)
 	while (argc_idx < argc)
 	{
 		split = ft_split(argv[argc_idx], ' ');
-		split_idx = 0;
-		while (split[split_idx] != 0)
+		split_idx = -1;
+		while (split[++split_idx] != 0)
 		{
 			num = ft_atoi_check(split[split_idx], info);
+			duplicate_check(info, num);
 			info->a->arr[array_idx] = num;
 			info->a->size++;
 			array_idx++;
-			split_idx++;
 		}
 		ft_free(split);
 		argc_idx++;
 	}
-	input_check(info);
+	sort_check(info);
 }
 
 void	init_stack(int argc, char *argv[], t_info *info)
