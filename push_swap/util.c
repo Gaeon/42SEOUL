@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:08:43 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/02/26 17:44:02 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/03/02 11:56:37 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,13 @@ void	ft_free(char **str)
 
 int	print_error(int type, t_info *info)
 {
-	if (type == 0)
-		return (0);
 	if (type == 1)
-		write(2, "Error! Argument Error\n", 23);
+		;
 	if (type == 2)
-		write(2, "Error! Malloc Error\n", 21);
+		free(info->a->arr);
 	if (type == 3)
 	{
-		write(2, "Error! Malloc Error\n", 21);
-		free(info->a->arr);
-	}
-	if (type >= 4)
-	{
-		if (type == 4)
-			write(2, "Error! Arguments are bigger than an integer\n", 45);
-		if (type == 5)
-			write(2, "Error! Non numeric input\n", 26);
-		if (type == 6)
-			write(2, "Error! Duplicate input\n", 24);
-		if (type == 7)
-			write(2, "Error! Already Sorted\n", 23);
+		write(2, "Error!n", 6);
 		free(info->a->arr);
 		free(info->b->arr);
 	}

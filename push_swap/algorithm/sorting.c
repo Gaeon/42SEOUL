@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/01 17:52:23 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/02 11:59:32 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,4 @@ void	ft_sort(t_info *info)
 		else
 			push_to_b(info, info->size);
 	}
-	// free(info->a);
-	// free(info->b);
 }

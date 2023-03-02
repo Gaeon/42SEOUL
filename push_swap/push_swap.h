@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/01 17:52:21 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/02 11:56:54 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	rrb(t_info *info);
 void	rrr(t_info *info);
 
 // parsing
-void	sort_check(t_info *info);
 void	duplicate_check(t_info *info, int num);
 void	set_stack(int argc, char *argv[], t_info *info);
 void	init_stack(int argc, char *argv[], t_info *info);

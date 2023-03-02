@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/01 14:00:07 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/02 11:56:20 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,10 @@ void 	duplicate_check(t_info *info, int num)
 	while (idx <= info->a->size)
 	{
 		if (info->a->arr[idx] == num)
-			print_error(6, info);
+			print_error(3, info);
 		idx++;
 	}
 }
-
- void	sort_check(t_info *info)
- {
- 	int	i;
-
- 	i = 0;
- 	while (i <= info->a->size)
- 	{
- 		if (info->a->arr[i] > info->a->arr[i + 1])
- 			break ;
- 		i++;
- 	}
- 	if (i == info->a->size)
- 		print_error(7, info);
- }
 
 void	set_stack(int argc, char *argv[], t_info *info)
 {
@@ -65,7 +50,6 @@ void	set_stack(int argc, char *argv[], t_info *info)
 		ft_free(split);
 		argc_idx++;
 	}
-	sort_check(info);
 }
 
 void	init_stack(int argc, char *argv[], t_info *info)
@@ -79,10 +63,10 @@ void	init_stack(int argc, char *argv[], t_info *info)
 		size += ft_word_cnt(argv[argc_idx], ' ');
 	info->a->arr = (int *)malloc(sizeof(int) * size);
 	if (info->a->arr == 0)
-		print_error(2, info);
+		print_error(1, info);
 	info->b->arr = (int *)malloc(sizeof(int) * size);
 	if (info->b->arr == 0)
-		print_error(3, info);
+		print_error(2, info);
 	info->size = size;
 	info->a->size = -1;
 	info->b->size = -1;
