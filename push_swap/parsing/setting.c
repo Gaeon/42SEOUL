@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   setting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/02 11:56:20 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/04 12:53:42 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void 	duplicate_check(t_info *info, int num)
+void	duplicate_check(t_info *info, int num)
 {
 	int	idx;
 

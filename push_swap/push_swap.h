@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/02 11:56:54 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/04 12:57:24 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include "ft_printf/ft_printf.h"
 
 typedef struct s_argument{
-	int ra;
-	int rb;
-	int pa;
-	int pb;
+	int	ra;
+	int	rb;
+	int	pa;
+	int	pb;
 }	t_argument;
 
 typedef struct s_stack{

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   recursive.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/04 12:54:16 by gaeokim           #+#    #+#             */
+/*   Updated: 2023/03/04 12:54:56 by gaeokim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	get_pivot(t_info *info, int size, int flag)
 {
-	int *arr;
-	int pivot;
+	int	*arr;
+	int	pivot;
 
 	arr = duplicate_stack(info, flag);
 	sort_duplicate_stack(arr, size);
@@ -49,11 +61,11 @@ void	push_to_a_step(t_info *info, t_argument *arg_cnt, int size)
 
 void	push_to_a(t_info *info, int size)
 {
-	int 		idx;
+	int			idx;
 	t_argument	arg_cnt;
 
-	arg_cnt  = (t_argument){0, 0, 0, 0};
-	if(is_stack_sorted(info, 2))
+	arg_cnt = (t_argument){0, 0, 0, 0};
+	if (is_stack_sorted(info, 2))
 	{
 		while (info->b->size >= 0)
 			pa(info);
@@ -62,7 +74,7 @@ void	push_to_a(t_info *info, int size)
 	if (size <= 3)
 	{
 		element_under_5(info, 2);
-		return ; 
+		return ;
 	}
 	get_pivot(info, info->a->size, 2);
 	push_to_a_step(info, &arg_cnt, size);
@@ -102,16 +114,16 @@ void	push_to_b_step(t_info *info, t_argument *arg_cnt, int size)
 
 void	push_to_b(t_info *info, int size)
 {
-	int 		idx;
-	t_argument arg_cnt;
+	int			idx;
+	t_argument	arg_cnt;
 
-	arg_cnt  = (t_argument){0, 0, 0, 0};
-	if(is_stack_sorted(info, 1))
-		return;
+	arg_cnt = (t_argument){0, 0, 0, 0};
+	if (is_stack_sorted(info, 1))
+		return ;
 	if (size <= 3)
 	{
 		element_under_5(info, 1);
-		return ; 
+		return ;
 	}
 	get_pivot(info, info->size, 1);
 	push_to_b_step(info, &arg_cnt, size);

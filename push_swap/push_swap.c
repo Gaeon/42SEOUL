@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/02 12:00:00 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/04 12:57:07 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,26 @@
 
 //Error 부분 Subject 요구사항에 맞게 고치기!!!
 #include <stdio.h>
+
+void	result(t_info *info)
+{
+	int	i;
+
+	i = 0;
+	ft_printf("\na	b\n---------\n");
+	while (i <= info->a->size || i <= info->b->size)
+	{
+		if (i <= info->a->size)
+			ft_printf("%d	", info->a->arr[i]);
+		else
+			ft_printf("-	");
+		if (i <= info->b->size)
+			ft_printf("%d\n", info->b->arr[i]);
+		else
+			ft_printf("-\n");
+		i++;
+	}
+}
 
 int	main(int argc, char *argv[])
 {
@@ -29,22 +49,6 @@ int	main(int argc, char *argv[])
 		init_stack(argc, argv, &info);
 		set_stack(argc, argv, &info);
 		ft_sort(&info);
-
-		int i = 0;
-		ft_printf("\na	b\n---------\n");
-		while (i <= info.a->size || i <= info.b->size)
-		{
-			if (i <= info.a->size)
-				ft_printf("%d	", info.a->arr[i]);
-			else
-				ft_printf("-	");
-			if (i <= info.b->size)
-				ft_printf("%d\n", info.b->arr[i]);
-			else
-				ft_printf("-\n");
-			i++;
-		}
-
 		free(info.a->arr);
 		free(info.b->arr);
 	}

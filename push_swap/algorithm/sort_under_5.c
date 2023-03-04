@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_under_5.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/01 17:50:36 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/04 12:55:21 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,3 @@ void	ft_sort_five_element_b(t_info *info)
 	pb(info);
 	free(array);
 }
-

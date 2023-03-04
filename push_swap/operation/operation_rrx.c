@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_rrx.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:05:52 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/03/01 17:20:57 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/04 12:54:03 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	rrr(t_info *info)
 		if (idx_a > 0)
 		{
 			info->a->arr[idx_a] = info->a->arr[idx_a - 1];
-			idx_a--;			
+			idx_a--;
 		}
 		if (idx_b > 0)
 		{
 			info->b->arr[idx_b] = info->b->arr[idx_b - 1];
-			idx_b--;	
+			idx_b--;
 		}
 	}
 	info->a->arr[idx_a] = temp_a;
