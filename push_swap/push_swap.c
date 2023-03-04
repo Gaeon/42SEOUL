@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/04 12:57:07 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/03/04 12:59:39 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	main(int argc, char *argv[])
 		init_stack(argc, argv, &info);
 		set_stack(argc, argv, &info);
 		ft_sort(&info);
+		result(&info);
 		free(info.a->arr);
 		free(info.b->arr);
 	}

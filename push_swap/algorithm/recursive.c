@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 12:54:16 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/03/04 12:54:56 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/03/04 12:59:11 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	push_to_a(t_info *info, int size)
 			pa(info);
 		return ;
 	}
-	if (size <= 3)
+	if (size <= 5)
 	{
 		element_under_5(info, 2);
 		return ;
@@ -120,7 +120,7 @@ void	push_to_b(t_info *info, int size)
 	arg_cnt = (t_argument){0, 0, 0, 0};
 	if (is_stack_sorted(info, 1))
 		return ;
-	if (size <= 3)
+	if (size <= 5)
 	{
 		element_under_5(info, 1);
 		return ;
