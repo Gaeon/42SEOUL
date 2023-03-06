@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/04 12:57:24 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/03/06 10:59:54 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,25 @@ int		ft_atoi_check(const char *str, t_info *info);
 
 //algorithm
 void	ft_sort_three_element_a(t_info *info);
-void	ft_sort_five_element_a(t_info *info);
-void	ft_sort_three_element_b(t_info *info);
-void	ft_sort_five_element_b(t_info *info);
-void	element_under_5(t_info *info, int flag);
+void	ft_sort_five_element_a(t_info *info, int size);
+void	element_under_5(t_info *info, int flag, int size);
+void	ft_sort_a(t_info *info, int size);
+void	ft_sort_b(t_info *info, int size);
 void	ft_sort(t_info *info);
 
 void	get_pivot(t_info *info, int size, int flag);
 
-int		is_stack_sorted(t_info *info, int flag);
+int		is_stack_sorted(t_info *info, int flag, int size);
 void	sort_duplicate_stack(int *array, int size);
-int		*duplicate_stack(t_info *info, int flag);
+int		*duplicate_stack(t_info *info, int flag, int size);
 
 void	push_to_a(t_info *info, int size);
 void	push_to_b(t_info *info, int size);
-void	push_to_a_step(t_info *info, t_argument *arg_cnt, int size);
-void	push_to_b_step(t_info *info, t_argument *arg_cnt, int size);
 
 //util.c
 void	ft_free(char **str);
 int		print_error(int type, t_info *info);
+
+void	result(t_info *info);
 
 #endif

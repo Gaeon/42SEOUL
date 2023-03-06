@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:08:43 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/03/02 11:56:37 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/06 10:45:38 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	print_error(int type, t_info *info)
 		free(info->a->arr);
 	if (type == 3)
 	{
-		write(2, "Error!n", 6);
+		write(2, "Error\n", 6);
 		free(info->a->arr);
 		free(info->b->arr);
 	}

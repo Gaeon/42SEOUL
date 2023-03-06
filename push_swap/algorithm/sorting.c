@@ -6,37 +6,34 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/02 11:59:32 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/06 11:06:40 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	element_under_5(t_info *info, int flag)
+void	element_under_5(t_info *info, int flag, int size)
 {
 	if (flag == 1)
 	{
-		if (info->a->size == 2)
+		if (size == 2)
+			sa(info);
+		else if (size == 3)
 			ft_sort_three_element_a(info);
-		if (info->a->size == 4)
-			ft_sort_five_element_a(info);
+		else if (size == 4 || size == 5)
+			ft_sort_five_element_a(info, size);
 	}
 	else
-	{
-		if (info->b->size == 2)
-			ft_sort_three_element_b(info);
-		if (info->b->size == 4)
-			ft_sort_five_element_b(info);
-	}
+		ft_sort_b(info, size);
 }
 
 void	ft_sort(t_info *info)
 {
-	if (!is_stack_sorted(info, 1))
+	if (!is_stack_sorted(info, 1, info->size))
 	{
 		if (info->a->size < 5)
-			element_under_5(info, 1);
+			element_under_5(info, 1, info->a->size + 1);
 		else
-			push_to_b(info, info->size);
+			push_to_b(info, info->a->size + 1);
 	}
 }

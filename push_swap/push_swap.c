@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/04 12:59:39 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/03/06 11:38:36 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ft_printf/ft_printf.h"
-
-//Error 부분 Subject 요구사항에 맞게 고치기!!!
-#include <stdio.h>
 
 void	result(t_info *info)
 {
@@ -49,7 +46,7 @@ int	main(int argc, char *argv[])
 		init_stack(argc, argv, &info);
 		set_stack(argc, argv, &info);
 		ft_sort(&info);
-		result(&info);
+		// result(&info);
 		free(info.a->arr);
 		free(info.b->arr);
 	}

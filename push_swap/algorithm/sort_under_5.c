@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_under_5.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/04 12:55:21 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/03/06 11:44:47 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,77 +39,67 @@ void	ft_sort_three_element_a(t_info *info)
 	}
 }
 
-void	ft_sort_five_element_a(t_info *info)
+void	ft_sort_five_element_a(t_info *info, int size)
 {
 	int	idx;
-	int	*array;
+	int	*dup_arr;
 
 	idx = 0;
-	array = duplicate_stack(info, 1);
-	sort_duplicate_stack(array, info->a->size + 1);
-	while (idx < 5)
+	dup_arr = duplicate_stack(info, 1, size);
+	sort_duplicate_stack(dup_arr, size);
+	while (idx < size)
 	{
-		if (array[1] >= info->a->arr[0])
+		if (info->a->arr[0] <= dup_arr[size - 4])
 			pb(info);
 		else
 			ra(info);
 		idx++;
 	}
 	ft_sort_three_element_a(info);
-	if (info->b->arr[0] < info->b->arr[1])
-		sb(info);
+	if (size == 5)
+	{
+		if (info->b->arr[0] < info->b->arr[1])
+			sb(info);
+		pa(info);
+	}
 	pa(info);
-	pa(info);
-	free(array);
+	free(dup_arr);
 }
 
-void	ft_sort_three_element_b(t_info *info)
+void	ft_sort_a(t_info *info, int size)
 {
-	int	top;
-	int	mid;
-	int	bot;
-
-	top = info->b->arr[0];
-	mid = info->b->arr[1];
-	bot = info->b->arr[2];
-	if (top < mid && mid < bot && top < bot)
+	if (size == 2 || size == 3)
 	{
-		sb(info);
-		rrb(info);
-	}
-	if (top < mid && mid > bot && top < bot)
-		rb(info);
-	if (top < mid && mid > bot && top > bot)
-		rrb(info);
-	if (top > mid && mid < bot && top > bot)
-		sb(info);
-	if (top > mid && mid > bot && top > bot)
-	{
-		sb(info);
-		rb(info);
+		if (info->a->arr[0] > info->a->arr[1])
+			sa(info);
+		if (size == 3)
+		{
+			if (info->a->arr[0] > info->a->arr[1])
+			{
+				ra(info);
+				sa(info);
+				rra(info);
+				if (info->a->arr[0] > info->a->arr[1])
+					sa(info);
+			}
+		}
 	}
 }
 
-void	ft_sort_five_element_b(t_info *info)
+void	ft_sort_b(t_info *info, int size)
 {
-	int	idx;
-	int	*array;
-
-	idx = 0;
-	array = duplicate_stack(info, 2);
-	sort_duplicate_stack(array, info->b->size + 1);
-	while (idx < 5)
+	if (size == 1)
+		pa(info);
+	else if (size >= 2)
 	{
-		if (array[3] <= info->b->arr[0])
-			pa(info);
-		else
-			rb(info);
-		idx++;
+		if (info->b->arr[0] < info->b->arr[1])
+			sb(info);
+		pa(info);
+		pa(info);
 	}
-	ft_sort_three_element_b(info);
-	if (info->a->arr[0] > info->a->arr[1])
-		sb(info);
-	pb(info);
-	pb(info);
-	free(array);
+	else if (size >= 3)
+	{
+		pa(info);
+		ft_sort_a(info, 3);
+	}
 }

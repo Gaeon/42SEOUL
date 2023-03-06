@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   recursive.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 12:54:16 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/03/04 12:59:11 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/03/06 10:55:54 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ void	get_pivot(t_info *info, int size, int flag)
 	int	*arr;
 	int	pivot;
 
-	arr = duplicate_stack(info, flag);
+	arr = duplicate_stack(info, flag, size);
 	sort_duplicate_stack(arr, size);
 	pivot = size / 4;
 	if (flag == 1)
 	{
-		info->pivot2 = arr[size - pivot];
-		info->pivot1 = arr[size - pivot * 2];
+		info->pivot1 = arr[size - pivot];
+		info->pivot2 = arr[size - pivot * 2];
 	}
 	else
 	{
-		info->pivot2 = arr[pivot * 2 - 1];
+		info->pivot1 = arr[pivot * 2 - 1];
 		info->pivot2 = arr[pivot - 1];
 	}
 	free(arr);
@@ -65,18 +65,18 @@ void	push_to_a(t_info *info, int size)
 	t_argument	arg_cnt;
 
 	arg_cnt = (t_argument){0, 0, 0, 0};
-	if (is_stack_sorted(info, 2))
+	if (is_stack_sorted(info, 2, size))
 	{
-		while (info->b->size >= 0)
+		while (size--)
 			pa(info);
 		return ;
 	}
-	if (size <= 5)
+	if (size <= 3)
 	{
-		element_under_5(info, 2);
+		ft_sort_b(info, size);
 		return ;
 	}
-	get_pivot(info, info->a->size, 2);
+	get_pivot(info, size, 2);
 	push_to_a_step(info, &arg_cnt, size);
 	push_to_b(info, arg_cnt.pa - arg_cnt.ra);
 	idx = -1;
@@ -118,14 +118,14 @@ void	push_to_b(t_info *info, int size)
 	t_argument	arg_cnt;
 
 	arg_cnt = (t_argument){0, 0, 0, 0};
-	if (is_stack_sorted(info, 1))
+	if (is_stack_sorted(info, 1, size))
 		return ;
-	if (size <= 5)
+	if (size <= 3)
 	{
-		element_under_5(info, 1);
+		ft_sort_a(info, size);
 		return ;
 	}
-	get_pivot(info, info->size, 1);
+	get_pivot(info, size, 1);
 	push_to_b_step(info, &arg_cnt, size);
 	idx = -1;
 	while (++idx < arg_cnt.ra)
