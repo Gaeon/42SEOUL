@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/06 11:44:47 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/06 20:44:06 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_sort_a(t_info *info, int size)
 			sa(info);
 		if (size == 3)
 		{
-			if (info->a->arr[0] > info->a->arr[1])
+			if (info->a->arr[1] > info->a->arr[2])
 			{
 				ra(info);
 				sa(info);
@@ -90,14 +90,14 @@ void	ft_sort_b(t_info *info, int size)
 {
 	if (size == 1)
 		pa(info);
-	else if (size >= 2)
+	if (size >= 2)
 	{
 		if (info->b->arr[0] < info->b->arr[1])
 			sb(info);
 		pa(info);
 		pa(info);
 	}
-	else if (size >= 3)
+	if (size >= 3)
 	{
 		pa(info);
 		ft_sort_a(info, 3);
