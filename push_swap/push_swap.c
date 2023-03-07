@@ -3,34 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:39:12 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/06 20:45:17 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/03/07 14:55:26 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ft_printf/ft_printf.h"
 
-void	result(t_info *info)
+void	ft_free(char **str)
 {
-	int	i;
+	int	idx;
 
-	i = 0;
-	ft_printf("\na	b\n---------\n");
-	while (i <= info->a->size || i <= info->b->size)
+	idx = 0;
+	while (str[idx])
 	{
-		if (i <= info->a->size)
-			ft_printf("%d	", info->a->arr[i]);
-		else
-			ft_printf("-	");
-		if (i <= info->b->size)
-			ft_printf("%d\n", info->b->arr[i]);
-		else
-			ft_printf("-\n");
-		i++;
+		free(str[idx]);
+		idx++;
 	}
+	free(str);
+}
+
+int	print_error(int type, t_info *info)
+{
+	if (type == 1)
+		;
+	if (type == 2)
+		free(info->a->arr);
+	if (type == 3)
+	{
+		write(2, "Error\n", 6);
+		free(info->a->arr);
+		free(info->b->arr);
+	}
+	exit(1);
 }
 
 int	main(int argc, char *argv[])
@@ -46,7 +53,6 @@ int	main(int argc, char *argv[])
 		init_stack(argc, argv, &info);
 		set_stack(argc, argv, &info);
 		ft_sort(&info);
-		// result(&info);
 		free(info.a->arr);
 		free(info.b->arr);
 	}
