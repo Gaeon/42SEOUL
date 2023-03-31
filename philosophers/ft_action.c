@@ -2,9 +2,7 @@
 
 void	message(t_philo *p, int a, int b)
 {
-	int		ret;
-
-	pthread_mutex_lock(&p->info->write_t);
+    pthread_mutex_lock(&p->info->write_t);
 	printf("%s%lld %d ", WHI, get_time() - p->info->start, p->num);
 	if (a == EAT)
 		printf("%sis eating\n", CYAN);

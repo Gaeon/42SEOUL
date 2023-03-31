@@ -16,11 +16,14 @@ int	ft_atoi(const char *str)
 			return (-1);
 		idx++;
 	}
-	while ('0' <= str[idx] && str[idx] <= '9')
+	while (str[idx])
 	{
-		ret = ret * 10 + str[idx] - '0';
+		if ('0' <= str[idx] && str[idx] <= '9')
+			ret = ret * 10 + str[idx] - '0';
+		else
+			ft_error(0, "Error: THE ARGUMENT MUST BE A NUMBER\n");
 		if (ret > 2147483647)
-			return (-1);
+				return (-1);
 		idx++;
 	}
 	return ((int)ret);

@@ -6,9 +6,9 @@ NAME = philo
 HEADER  = ./philo.h
 
 SRCS = 	./philo.c		\
-		./init.c 		\
-		./util.c 		\
-		./action.c
+		./ft_init.c 	\
+		./ft_action.c 	\
+		./ft_util.c 
 
 OBJS = $(SRCS:.c=.o)
 

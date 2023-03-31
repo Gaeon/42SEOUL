@@ -1,17 +1,20 @@
 #include "philo.h"
 
-int	input_check(int	argc, char *argv[])
+void	input_check(int	argc, char *argv[])
 {
 	int	idx;
 
 	idx = 1;
 	while(idx < argc)
 	{
-		if (ft_atoi(argv[idx]) < 1)
-			return (0);
+		if (idx == 1 && ft_atoi(argv[idx]) <= 0)
+			ft_error(0, "Error: NO PHELOSOPHER IN THE TABILE\n");
+		else if (idx <= 4 && ft_atoi(argv[idx]) < 60)
+			ft_error(0, "Error: THE time_to_X CAN'T BE LESS THAN 60 ms\n");
+		else if (idx == 5 && ft_atoi(argv[idx]) < 0)
+			ft_error(0, "Error: THE NUMBER OF EAT CAN'T BE LESS THAN 0\n");
 		idx++;
 	}
-	return (1);
 }
 
 void	setting(char *argv[], t_info *info)
@@ -30,8 +33,7 @@ int	main(int argc, char *argv[])
 
 	if (argc == 5 || argc == 6)
 	{
-		if(input_check(argc, argv) == 1)
-			return(ft_error(0, "Input Error!\n"));
+		input_check(argc, argv);
 		info = (t_info *)malloc(sizeof(t_info));
 		setting(argv, info);
 		init_info(info);
@@ -39,5 +41,6 @@ int	main(int argc, char *argv[])
 		pthread_mutex_lock(&info->dead_t);
 		ft_error(info, 0);
 	}
-	ft_error(0, "Argument Error!\n");
+	else
+		ft_error(0, "Error: Too many arguments\n");
 }
