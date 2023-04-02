@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cmd_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: johyyoon <johyyoon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:57:38 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 15:57:47 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/04/02 17:07:12 by johyyoon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 int	ft_cmd_env(char **env, int new_line, int fd)
 {
-	int	i;
-	int	count;
+	int	cnt;
 
-	count = 0;
-	i = 0;
-	while (env && env[i])
+	cnt = 0;
+	while (env && *env)
 	{
 		if (new_line)
-			count += ft_putendl_fd(env[i], fd);
+			cnt += ft_putendl_fd(*env++, fd);
 		else
-			count += ft_putstr_fd(env[i], fd);
-		i++;
+			cnt += ft_putstr_fd(*env++, fd);
 	}
-	return (count);
+	return (cnt);
 }

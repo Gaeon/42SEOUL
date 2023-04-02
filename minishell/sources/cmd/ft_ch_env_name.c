@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:57:20 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 15:58:10 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/04/02 17:35:42 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 int	ft_ch_env_name(char *str)
 {
-	int		i[2];
-	char	*s_str;
+	char	*invalid_chars;
+	size_t	len;
+	char	*p;
+	int		i;
 
-	i[0] = 0;
-	i[1] = 0;
-	s_str = "~@#%^-+:i.,\0";
-	while (str[i[0]])
+	i = -1;
+	len = ft_strlen(str);
+	invalid_chars = "~@#%^-+:.,";
+	while (++i < (int)len)
 	{
-		i[1] = 0;
-		if (str[i[0]] == '=')
-			break ;
-		while (s_str[i[1]])
+		if (str[i] == '=')
+			return (0);
+		p = ft_strchr(invalid_chars, str[i]);
+		if (p != NULL)
 		{
-			if (str[i[0]] == s_str[i[1]])
-			{
-				printf("-bash: export: not valid in this context\n");
-				return (1);
-			}
-			i[1]++;
+			printf("-bash: export: not valid in this context\n");
+			return (1);
 		}
-		i[0]++;
 	}
 	return (0);
 }

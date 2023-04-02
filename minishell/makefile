@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/02 16:03:14 by johyyoon          #+#    #+#              #
-#    Updated: 2023/04/02 16:03:15 by gaeon            ###   ########.fr        #
+#    Created: 2023/03/04 16:03:14 by johyyoon          #+#    #+#              #
+#    Updated: 2023/04/02 16:39:11 by gaeon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ SRCS		= minishell.c 							\
 			  sources/cmd/ft_find_cmd.c 			\
 			  sources/cmd/ft_pwd.c 					\
 			  sources/cmd/ft_export.c 				\
-			  sources/cmd/ft_exp_error.c 			\
 			  sources/cmd/ft_ch_env_name.c 			\
 			  sources/cmd/ft_unset.c 				\
 			  sources/cmd/ft_cmd_env.c 				\

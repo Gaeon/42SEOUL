@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:14:00 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 16:18:01 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/04/02 17:01:30 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,8 @@ int			ft_cmd_export(t_data *data);
 // srcs/pipex
 void		*ft_check_fork(t_data *data, t_list *cmd, int fd[2]);
 void		ft_fork(t_data *data, t_list *cmd, int fd[2]);
-void		ft_fork_2(t_data *data, t_list *cmd, int fd[2]);
-void		*ft_fork_3(t_list *cmd, int fd[2]);
-void		ft_fork_4(t_data *data, t_cmd *cmd_c, int len, t_list *cmd);
+void		*ft_fork_step_1(t_list *cmd, int fd[2]);
+void		ft_fork_step_2(t_data *data, t_cmd *cmd_c, int len, t_list *cmd);
 void		ft_get_cmd(t_data *data, t_list *cmd, char **str, char *path);
 void		*ft_run_cmd(t_data *data, t_list *cmd);
 

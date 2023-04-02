@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:00:13 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 16:05:18 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/04/02 17:02:04 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	ft_fork(t_data *data, t_list *cmd, int fd[2])
 {
 	pid_t	pid;
+	t_cmd	*cmd_c;
+	int		len;
 
 	pid = fork();
 	if (pid < 0)
@@ -24,26 +26,20 @@ void	ft_fork(t_data *data, t_list *cmd, int fd[2])
 		ft_perror(FORKERR, NULL, 1);
 	}
 	else if (!pid)
-		ft_fork_2(data, cmd, fd);
+	{
+		cmd_c = cmd->content;
+		len = 0;
+		if (cmd_c->f_cmd)
+			len = ft_strlen(*cmd_c->f_cmd);
+		ft_fork_step_1(cmd, fd);
+		close(fd[READ_END]);
+		ft_fork_step_2(data, cmd_c, len, cmd);
+		ft_lstclear(&data->cmds, ft_free_fd);
+		exit(g_status_number);
+	}
 }
 
-void	ft_fork_2(t_data *data, t_list *cmd, int fd[2])
-{
-	t_cmd	*cmd_c;
-	int		len;
-
-	cmd_c = cmd->content;
-	len = 0;
-	if (cmd_c->f_cmd)
-		len = ft_strlen(*cmd_c->f_cmd);
-	ft_fork_3(cmd, fd);
-	close(fd[READ_END]);
-	ft_fork_4(data, cmd_c, len, cmd);
-	ft_lstclear(&data->cmds, ft_free_fd);
-	exit(g_status_number);
-}
-
-void	*ft_fork_3(t_list *cmd, int fd[2])
+void	*ft_fork_step_1(t_list *cmd, int fd[2])
 {
 	t_cmd	*cmd_c;
 
@@ -66,7 +62,7 @@ void	*ft_fork_3(t_list *cmd, int fd[2])
 	return ("");
 }
 
-void	ft_fork_4(t_data *data, t_cmd *cmd_c, int len, t_list *cmd)
+void	ft_fork_step_2(t_data *data, t_cmd *cmd_c, int len, t_list *cmd)
 {
 	signal(SIGINT, SIG_DFL);
 	signal(SIGQUIT, SIG_DFL);

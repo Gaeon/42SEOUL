@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:58:05 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 15:58:47 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/04/02 17:05:49 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,18 @@ t_data	*ft_export_2(t_data *data, char **str, int q[3], int *r_n)
 	else if (!*r_n)
 		data->env = ft_extend_split(data->env, str[q[0]]);
 	return (data);
+}
+
+int	ft_exp_error(int q[3], int *r_n)
+{
+	if (q[2] >= 2 && *r_n == -2)
+	{
+		printf("bash: export: not valid in this context\n");
+		return (2);
+	}
+	else
+	{
+		q[2] = 1;
+		return (1);
+	}
 }

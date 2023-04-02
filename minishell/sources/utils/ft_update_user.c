@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:02:43 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 16:06:30 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/04/02 17:42:34 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 void	ft_update_user(char ***user, int fd)
 {
-	char	**str;
-	char	*tmp;
+	char	**new_user;
 	char	*line;
+	char	*trimmed_line;
 
-	str = NULL;
+	new_user = NULL;
 	line = NULL;
-	while (1)
+	while ((line = get_next_line(fd)) != NULL)
 	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		tmp = ft_strtrim(line, "\n");
+		trimmed_line = ft_strtrim(line, "\n");
 		free(line);
-		str = ft_extend_split(str, tmp);
-		free(tmp);
+		new_user = ft_extend_split(new_user, trimmed_line);
+		free(trimmed_line);
 	}
 	ft_free_split(user);
-	*user = str;
+	*user = new_user;
 }
