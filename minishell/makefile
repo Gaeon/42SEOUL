@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/04/02 16:03:14 by johyyoon          #+#    #+#              #
+#    Updated: 2023/04/02 16:03:15 by gaeon            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 ifneq ($(shell uname), Linux)
 READLINE_LIB_DIR_FLAG := -L$(shell brew --prefix readline)/lib
 READLINE_INC_DIR_FLAG := -I$(shell brew --prefix readline)/include
