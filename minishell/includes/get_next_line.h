@@ -3,29 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sangyeki <sangyeki@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 13:37:09 by sangyeki          #+#    #+#             */
-/*   Updated: 2022/09/10 14:11:04 by sangyeki         ###   ########.fr       */
+/*   Created: 2022/07/21 16:41:54 by gaeokim           #+#    #+#             */
+/*   Updated: 2023/04/02 14:59:31 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <unistd.h>
-# include <stdlib.h>
+# include <unistd.h>	//open
+# include <limits.h>	//OPEN_MAX
+# include <stdlib.h>	//malloc, free
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1
 # endif
 
+# ifndef OPEN_MAX
+#  define OPEN_MAX 49152
+# endif
+
+//get_next_line.c
+char	*ft_backup(char *read_line);
+char	*ft_read(int fd, char *read_line, char *buffer);
 char	*get_next_line(int fd);
-int		ft_strlen_g(char *str);
-int		ft_strlen_buf(char *str);
-char	*ft_strjoin_g(char *str, char *str2);
-void	ft_cut_line(char *str, char c);
-int		ft_seek(char *str, char c);
-char	*ft_free(char *str);
+
+//get_next_line_util.c
+char	*ft_strdup(const char *src);
+size_t	ft_strlen(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

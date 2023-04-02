@@ -1,84 +1,110 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/26 14:23:41 by gaeokim           #+#    #+#             */
+/*   Updated: 2023/04/02 15:01:13 by gaeon            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../../includes/get_next_line.h"
+#include "../../includes/minishell.h"
 
-int	ft_strlen_g(char *str)
+char	*ft_strdup(const char *src)
 {
-	int	len;
+	int		len;
+	char	*dup;
+
+	len = ft_strlen(src);
+	dup = (char *)malloc(sizeof(char) * (len + 1));
+	if (dup == 0)
+		return (0);
+	len = 0;
+	while (src[len] != '\0')
+	{
+		dup[len] = src[len];
+		len++;
+	}
+	dup[len] = '\0';
+	return (dup);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
 
 	len = 0;
-	while (str && str[len])
+	while (s[len] != '\0')
 		len++;
 	return (len);
 }
 
-int	ft_strlen_buf(char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	len;
+	int		str_idx;
+	int		s_idx;
+	char	*str;
 
-	len = 0;
-	while (str && str[len] && str[len] != '\n')
-		len++;
-	if (str && str[len] && str[len] == '\n')
-		len++;
-	return (len);
-}
-
-void	ft_cut_line(char *str, char c)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str && str[i] && str[i] != c)
-		i++;
-	if (str[i] == c)
-		i++;
-	while (j < BUFFER_SIZE - i)
+	s_idx = 0;
+	str_idx = 0;
+	if (s1 == 0 || s2 == 0)
+		return (0);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == 0)
+		return (0);
+	else
 	{
-		str[j] = str[j + i];
-		j++;
+		if (ft_strlen(s1) + ft_strlen(s2) != 0)
+		{
+			while (s1[s_idx])
+				str[str_idx++] = s1[s_idx++];
+			s_idx = 0;
+			while (s2[s_idx])
+				str[str_idx++] = s2[s_idx++];
+		}
+		str[str_idx] = '\0';
 	}
-	str[j] = 0;
+	return (str);
 }
 
-char	*ft_strjoin_g(char *str, char *str2)
+char	*ft_strchr(const char *s, int c)
 {
-	int		i_len;
-	int		j_len;
-	char	*target;
+	char	chr;
 
-	i_len = ft_strlen_g(str);
-	j_len = ft_strlen_buf(str2);
-	target = malloc(sizeof(char) * (i_len + j_len + 1));
-	if (target)
+	chr = (char)c;
+	while (*s != '\0')
 	{
-		i_len = -1;
-		j_len = -1;
-		while (str && str[++i_len])
-			target[i_len] = str[i_len];
-		if (i_len == -1)
-			i_len = 0;
-		while (str2 && str2[++j_len] && str2[j_len] != '\n')
-			target[i_len + j_len] = str2[j_len];
-		target[i_len + j_len] = str2[j_len];
-		if ((str2 && str2[j_len] && str2[j_len] == '\n') || j_len == -1)
-			j_len++;
-		target[i_len + j_len] = 0;
+		if (*s == chr)
+			return ((char *)s);
+		s++;
 	}
-	free(str);
-	str = NULL;
-	return (target);
+	if (chr == '\0')
+		return ((char *)s);
+	return (0);
 }
 
-int	ft_seek(char *str, char c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	size_t	idx;
+	char	*substr;
 
-	i = 0;
-	while (str && str[i] && str[i] != c)
-		i++;
-	if (str[i] == c)
-		return (i);
-	return (-1);
+	idx = 0;
+	if (s == 0)
+		return (0);
+	substr = (char *)malloc(len + 1);
+	if (substr == 0)
+		return (NULL);
+	if (start < ft_strlen(s))
+	{
+		s += start;
+		while (s[idx] && idx < len)
+		{
+			substr[idx] = s[idx];
+			idx++;
+		}
+	}
+	substr[idx] = '\0';
+	return (substr);
 }

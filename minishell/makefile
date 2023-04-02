@@ -83,13 +83,8 @@ SRCS		= minishell.c \
 			  sources/utils/ft_find_str.c \
 			  sources/pipex/ft_check_fork.c \
 			  sources/pipex/ft_fork.c \
-			  sources/pipex/ft_fork_2.c \
-			  sources/pipex/ft_fork_3.c \
-			  sources/pipex/ft_fork_4.c \
-			  sources/pipex/ft_get_cmd.c \
-			  sources/pipex/ft_run_cmd.c \
-			  sources/signal/ft_sig_c.c \
-			  sources/signal/ft_sig_q.c \
+			  sources/pipex/ft_cmd.c \
+			  sources/signal/ft_sig.c
 			  				  
 NAME		= minishell
 OBJS_DIR	= objs/
