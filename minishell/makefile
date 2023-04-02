@@ -16,13 +16,11 @@ CC_FLAGS	= -g3 -fsanitize=address -Wall -Werror -Wextra
 SRCS		= minishell.c 							\
 			  sources/built/ft_built_in.c 			\
 			  sources/built/ft_built.c 				\
-			  sources/cmd/ft_get_infile.c 			\
-			  sources/cmd/ft_get_outfile.c 			\
+			  sources/cmd/ft_get_inoutfile.c 		\
 			  sources/cmd/ft_check_dir.c 			\
 			  sources/cmd/ft_getfd.c 				\
 			  sources/cmd/ft_heredoc.c 				\
 			  sources/cmd/ft_cd.c 					\
-			  sources/cmd/ft_cd_error.c 			\
 			  sources/cmd/ft_check_cmd.c 			\
 			  sources/cmd/ft_echo.c 				\
 			  sources/cmd/ft_exit.c 				\
