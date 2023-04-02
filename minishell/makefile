@@ -79,7 +79,7 @@ SRCS		= minishell.c 							\
 			  sources/pipex/ft_check_fork.c 		\
 			  sources/pipex/ft_fork.c 				\
 			  sources/pipex/ft_cmd.c 				\
-			  sources/signal/ft_sig.gic
+			  sources/signal/ft_sig.c
 
 OBJS		= $(SRCS:.c=.o)
 		  				  

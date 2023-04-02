@@ -1,4 +1,3 @@
-
 #include "../../includes/minishell.h"
 
 long long	ft_atol(char *str, long long *n)

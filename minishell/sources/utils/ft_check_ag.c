@@ -1,4 +1,3 @@
-
 #include "../../includes/minishell.h"
 
 void	*ft_check_ag(char *in_cmd, t_data *data)

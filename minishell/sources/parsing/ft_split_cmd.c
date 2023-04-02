@@ -1,4 +1,3 @@
-
 #include "../../includes/minishell.h"
 
 char	**ft_split_cmd(const char *in_cmd, char *c)
