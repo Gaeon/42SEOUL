@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:00:13 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 16:01:25 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/04/02 16:05:18 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,3 @@ void	ft_fork_4(t_data *data, t_cmd *cmd_c, int len, t_list *cmd)
 		g_status_number = 0;
 	}
 }
-
