@@ -50,7 +50,7 @@ SRCS		= minishell.c 							\
 			  sources/parsing/ft_word_count.c 		\
 			  sources/parsing/ft_cmd_count.c 		\
 			  sources/utils/ft_atol.c 				\
-			  sources/utils/ft_check_ag.c 			\		
+			  sources/utils/ft_check_ag.c 			\
 			  sources/utils/ft_count_len.c 			\
 			  sources/utils/ft_count_char.c 		\
 			  sources/utils/ft_create_cmd.c 		\
