@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lock_trim_cmd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: johyyoon <johyyoon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:59:29 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 18:00:51 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/04/02 18:29:31 by johyyoon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
 
 char	**ft_lock_trim_cmd(char **in_cmd)
 {
