@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_prompt.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johyyoon <johyyoon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:01:32 by johyyoon          #+#    #+#             */
-/*   Updated: 2023/04/02 18:31:42 by johyyoon         ###   ########.fr       */
+/*   Updated: 2023/04/02 17:45:27 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,4 @@ char	*ft_get_prompt(t_data data)
 	free(tmp);
 	return (tmp2);
 }
+
