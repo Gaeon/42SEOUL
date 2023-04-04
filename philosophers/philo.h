@@ -10,9 +10,9 @@
 						// pthread_mutex_init pthread_mutex_destroy 
 						// pthread_mutex_lock pthread_mutex_unlock
 
-# define EAT 			0
-# define SLEEP 			1
-# define FORK		 	2
+# define FORK		 	0
+# define EAT 			1
+# define SLEEP 			2
 # define THINK			3
 # define DIED 			4
 # define OVER 			5
@@ -40,7 +40,7 @@ typedef struct	s_info
 {
 	t_philo			*philos;
 	pthread_mutex_t	*fork;
-	pthread_mutex_t	write_t;
+	pthread_mutex_t	message_t;
 	pthread_mutex_t	dead_t;
 
 	int				n_philos;
@@ -52,20 +52,20 @@ typedef struct	s_info
 }	t_info;
 
 //ft_aciton
-void	message(t_philo *p, int a, int b);
 void	*monitor(void *p);
 void	hold_fork(t_philo *p);
 void	eat(t_philo *p);
 void	put_fork(t_philo *p);
+void	ft_sleep(long long time);
 
 //ft_init
-void init_info(t_info *info);
-void init_philo(t_info *info);
+void init(t_info *info);
+void start(t_info *info);
 
 //ft_util
+void		message(t_philo *philo, int status, int unlock);
 int			ft_atoi(const char *str);
 int			ft_error(t_info *info, char *str);
 long long	get_time(void);
-void		ft_sleep(long long time);
 
 #endif

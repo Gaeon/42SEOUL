@@ -6,7 +6,7 @@ NAME = philo
 HEADER  = ./philo.h
 
 SRCS = 	./philo.c		\
-		./ft_init.c 	\
+		./ft_setting.c 	\
 		./ft_action.c 	\
 		./ft_util.c 
 

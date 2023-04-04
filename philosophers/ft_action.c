@@ -1,25 +1,5 @@
 #include "philo.h"
 
-void	message(t_philo *p, int a, int b)
-{
-    pthread_mutex_lock(&p->info->write_t);
-	printf("%s%lld %d ", WHI, get_time() - p->info->start, p->num);
-	if (a == EAT)
-		printf("%sis eating\n", CYAN);
-	if (a == SLEEP)
-		printf("%sis sleeping\n", PEO);
-	if (a == FORK)
-		printf("%shas taken a fork\n", RED);
-	if (a == THINK)
-		printf("%sis thinking\n", YEL);
-	if (a == DIED)
-		printf("%shas died\n", RED);
-	if (a == OVER)
-		printf("%smust eat count reached\n", RED);
-	if (b)
-		pthread_mutex_unlock(&p->info->write_t);
-}
-
 void	*monitor(void *p)
 {
 	t_philo			*philo;
@@ -40,29 +20,42 @@ void	*monitor(void *p)
 }
 
 
-void	hold_fork(t_philo *p)
+void	hold_fork(t_philo *philo)
 {
-	pthread_mutex_lock(&p->info->fork[p->left_fork]);
-	message(p, FORK, 1);
-	pthread_mutex_lock(&p->info->fork[p->right_fork]);
-	message(p, FORK, 1);
+	pthread_mutex_lock(&philo->info->fork[philo->left_fork]);
+	message(philo, FORK, 1);
+	pthread_mutex_lock(&philo->info->fork[philo->right_fork]);
+	message(philo, FORK, 1);
 }
 
-void	eat(t_philo *p)
+void	eat(t_philo *philo)
 {
-	p->is_eating = 1;
-	message(p, EAT, 1);
-	p->eat_cnt++;
-	p->time = get_time();
-	ft_sleep(p->info->t_eat);
-	p->is_eating = 0;
+	philo->is_eating = 1;
+	message(philo, EAT, 1);
+	philo->eat_cnt++;
+	philo->time = get_time();
+	ft_sleep(philo->info->t_eat);
+	philo->is_eating = 0;
 }
 
-void	put_fork(t_philo *p)
+void	put_fork(t_philo *philo)
 {
-	pthread_mutex_unlock(&p->info->fork[p->left_fork]);
-	pthread_mutex_unlock(&p->info->fork[p->right_fork]);
-	message(p, SLEEP, 1);
-	ft_sleep(p->info->t_eat);
-	message(p, THINK, 1);
+	pthread_mutex_unlock(&philo->info->fork[philo->left_fork]);
+	pthread_mutex_unlock(&philo->info->fork[philo->right_fork]);
+	message(philo, SLEEP, 1);
+	ft_sleep(philo->info->t_eat);
+	message(philo, THINK, 1);
+}
+
+void	ft_sleep(long long time)
+{
+	long long	t;
+
+	t = get_time();
+	while (1)
+	{
+		if (get_time() - t >= time)
+			break ;
+		usleep(300);
+	}
 }

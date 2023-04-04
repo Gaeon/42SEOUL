@@ -34,18 +34,17 @@ int	ft_error(t_info *info, char *str)
 	int	i;
 
 	i = -1;
-
 	if (info)
 	{
 		pthread_mutex_destroy(&info->dead_t);
-		pthread_mutex_destroy(&info->write_t);
+		pthread_mutex_destroy(&info->message_t);
 		while(++i < info->n_philos)
 			pthread_mutex_destroy(&info->fork[i]);
 		free(info->fork);
 		free(info);
 	}
 	if(str)
-		printf("%s", str);
+		printf("%s%s", RED, str);
 	exit(1);
 }
 
@@ -57,16 +56,22 @@ long long	get_time(void)
 	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
 
-void	ft_sleep(long long time)
+void	message(t_philo *philo, int status, int unlock)
 {
-	long long	t;
-
-	t = get_time();
-	while (1)
-	{
-		if (get_time() - t >= time)
-			break ;
-		usleep(300);
-	}
+	pthread_mutex_lock(&philo->info->message_t);
+	printf("%s%lld %d ", WHI, get_time() - philo->info->start, philo->num);
+	if (status == EAT)
+		printf("%sis eating\n", CYAN);
+	if (status == SLEEP)
+		printf("%sis sleeping\n", PEO);
+	if (status == FORK)
+		printf("%shas taken a fork\n", BLUE);
+	if (status == THINK)
+		printf("%sis thinking\n", YEL);
+	if (status == DIED)
+		printf("%shas died\n", RED);
+	if (status == OVER)
+		printf("%smust eat count reached\n", RED);
+	if (unlock)
+		pthread_mutex_unlock(&philo->info->message_t);
 }
-
