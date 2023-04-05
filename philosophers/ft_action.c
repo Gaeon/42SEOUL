@@ -11,7 +11,7 @@ void	*monitor(void *p)
 				get_time() - philo->time > philo->info->t_die)
 		{
 			message(philo, DIED, 0);
-			pthread_mutex_unlock(&philo->info->dead_t);
+			pthread_mutex_unlock(&philo->info->dead_t);	//?????
 			return ((void *) 0);
 		}
 		usleep(1000);

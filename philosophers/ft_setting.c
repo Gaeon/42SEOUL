@@ -26,7 +26,7 @@ void	*die_check(void *phi)
 		}
 		usleep(1000);
 	}
-	return (NULL);
+	return (0);
 }
 
 void	*func(void *t)
