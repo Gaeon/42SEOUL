@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:12:25 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/04/06 18:15:14 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/04/06 19:42:07 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define RED  "\033[0;31m"
 # define CYAN "\033[0;36m"
 # define BLUE "\033[0;34m"
-# define YEL "\033[0;33m"
+# define YEL  "\033[0;33m"
 
 typedef struct s_philo
 {
