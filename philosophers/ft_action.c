@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:10:20 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/04/06 18:15:20 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/04/06 20:07:42 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*monitor(void *p)
 			pthread_mutex_unlock(&philo->info->dead_t);
 			return ((void *) 0);
 		}
-		usleep(1000);
+		usleep(100);
 	}
 	return ((void *) 1);
 }
@@ -66,6 +66,6 @@ void	ft_sleep(long long time)
 	{
 		if (get_time() - t >= time)
 			break ;
-		usleep(300);
+		usleep(10);
 	}
 }

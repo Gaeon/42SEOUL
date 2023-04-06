@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:10:34 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/04/06 18:00:33 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/04/06 19:47:32 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	*die_check(void *phi)
 			pthread_mutex_unlock(&info->dead_t);
 			break ;
 		}
-		usleep(10);
+		usleep(100);
 	}
 	return (0);
 }
