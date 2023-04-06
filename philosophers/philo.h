@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/06 17:12:25 by gaeokim           #+#    #+#             */
+/*   Updated: 2023/04/06 17:13:28 by gaeokim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -24,7 +36,7 @@
 # define BLUE "\033[0;34m"
 # define YEL "\033[0;33m"
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	pthread_t		id;
 	int				num;
@@ -36,7 +48,7 @@ typedef struct	s_philo
 	struct s_info	*info;
 }	t_philo;
 
-typedef struct	s_info
+typedef struct s_info
 {
 	t_philo			*philos;
 	pthread_mutex_t	*fork;
@@ -52,15 +64,15 @@ typedef struct	s_info
 }	t_info;
 
 //ft_aciton
-void	*monitor(void *p);
-void	hold_fork(t_philo *p);
-void	eat(t_philo *p);
-void	put_fork(t_philo *p);
-void	ft_sleep(long long time);
+void		*monitor(void *p);
+void		hold_fork(t_philo *p);
+void		eat(t_philo *p);
+void		put_fork(t_philo *p);
+void		ft_sleep(long long time);
 
 //ft_init
-void init(t_info *info);
-void start(t_info *info);
+void		init(t_info *info);
+void		start(t_info *info);
 
 //ft_util
 void		message(t_philo *philo, int status, int unlock);

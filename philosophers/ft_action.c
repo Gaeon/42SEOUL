@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_action.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/06 17:10:20 by gaeokim           #+#    #+#             */
+/*   Updated: 2023/04/06 17:18:35 by gaeokim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	*monitor(void *p)
@@ -7,8 +19,7 @@ void	*monitor(void *p)
 	philo = (t_philo *)p;
 	while (1)
 	{
-		if (!philo->is_eating && \
-				get_time() - philo->time > philo->info->t_die)
+		if (!philo->is_eating && get_time() - philo->time > philo->info->t_die)
 		{
 			message(philo, DIED, 0);
 			pthread_mutex_unlock(&philo->info->dead_t);
@@ -18,7 +29,6 @@ void	*monitor(void *p)
 	}
 	return ((void *) 1);
 }
-
 
 void	hold_fork(t_philo *philo)
 {

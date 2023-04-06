@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_util.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/06 17:10:58 by gaeokim           #+#    #+#             */
+/*   Updated: 2023/04/06 17:42:17 by gaeokim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 #include <pthread.h>
 
@@ -13,7 +25,7 @@ int	ft_atoi(const char *str)
 	if (str[idx] == '+' || str[idx] == '-')
 	{
 		if (str[idx] == '-')
-			return (-1);
+			ft_error(0, "Error: THE ARGUMENT MUST BE POSITIVE\n");
 		idx++;
 	}
 	while (str[idx])
@@ -23,7 +35,7 @@ int	ft_atoi(const char *str)
 		else
 			ft_error(0, "Error: THE ARGUMENT MUST BE A NUMBER\n");
 		if (ret > 2147483647)
-				return (-1);
+			ft_error(0, "Error: THE ARGUMENT MUST BE IN THE RANGE OF INT\n");
 		idx++;
 	}
 	return ((int)ret);
@@ -38,12 +50,12 @@ int	ft_error(t_info *info, char *str)
 	{
 		pthread_mutex_destroy(&info->dead_t);
 		pthread_mutex_destroy(&info->message_t);
-		while(++i < info->n_philos)
+		while (++i < info->n_philos)
 			pthread_mutex_destroy(&info->fork[i]);
 		free(info->fork);
 		free(info);
 	}
-	if(str)
+	if (str)
 		printf("%s%s", RED, str);
 	exit(1);
 }
@@ -69,7 +81,7 @@ void	message(t_philo *philo, int status, int unlock)
 	if (status == THINK)
 		printf("%sis thinking\n", YEL);
 	if (status == DIED)
-		printf("%shas died\n", RED);
+		printf("%sdied\n", RED);
 	if (status == OVER)
 		printf("%smust eat count reached\n", RED);
 	if (unlock)

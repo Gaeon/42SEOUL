@@ -1,14 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/06 17:11:11 by gaeokim           #+#    #+#             */
+/*   Updated: 2023/04/06 17:22:06 by gaeokim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-void	input_check(int	argc, char *argv[])
+void	input_check(int argc, char *argv[])
 {
 	int	idx;
 
 	idx = 1;
-	while(idx < argc)
+	while (idx < argc)
 	{
-		if (idx == 1 && ft_atoi(argv[idx]) <= 1)
-			ft_error(0, "Error: THE NUMBER OF PHILOSOPHERS CANNOT BE LESS THAN 2\n");
+		if (idx == 1 && ft_atoi(argv[idx]) <= 0)
+			ft_error(0, \
+				"Error: THE NUMBER OF PHILOSOPHERS CAN'T BE LESS THAN 1\n");
 		else if ((2 <= idx && idx <= 4) && ft_atoi(argv[idx]) < 60)
 			ft_error(0, "Error: THE time_to_X CAN'T BE LESS THAN 60 ms\n");
 		else if (idx == 5 && ft_atoi(argv[idx]) <= 0)
@@ -30,7 +43,7 @@ void	setting(char *argv[], t_info *info)
 }
 
 int	main(int argc, char *argv[])
-{ 
+{
 	t_info	*info;
 
 	if (argc >= 5 && argc <= 6)
