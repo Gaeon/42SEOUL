@@ -6,7 +6,7 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 19:31:18 by gaeokim           #+#    #+#              #
-#    Updated: 2023/04/06 20:13:40 by gaeokim          ###   ########.fr        #
+#    Updated: 2023/04/07 17:16:23 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
 	
 %.o : %.c
-	$(CC) $(CFAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean :
 	rm -rf $(OBJS)

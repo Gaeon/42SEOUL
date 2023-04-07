@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:10:20 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/04/06 20:07:42 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/04/07 17:16:15 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	put_fork(t_philo *philo)
 	pthread_mutex_unlock(&philo->info->fork[philo->left_fork]);
 	pthread_mutex_unlock(&philo->info->fork[philo->right_fork]);
 	message(philo, SLEEP, 1);
-	ft_sleep(philo->info->t_eat);
+	ft_sleep(philo->info->t_sleep);
 	message(philo, THINK, 1);
 }
 
