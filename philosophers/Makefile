@@ -6,13 +6,13 @@
 #    By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 19:31:18 by gaeokim           #+#    #+#              #
-#    Updated: 2023/04/07 17:16:23 by gaeokim          ###   ########.fr        #
+#    Updated: 2023/04/08 17:58:03 by gaeokim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C = cc
 CFLAGS = -Wall -Wextra -Werror 
-# -g -fsanitize=thread
+#-g -fsanitize=thread
 
 NAME = philo
 
@@ -30,7 +30,8 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
 	
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFAGS) -c $< -o $@
+
 	
 clean :
 	rm -rf $(OBJS)

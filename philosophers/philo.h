@@ -6,7 +6,7 @@
 /*   By: gaeokim <gaeokim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:12:25 by gaeokim           #+#    #+#             */
-/*   Updated: 2023/04/06 19:42:07 by gaeokim          ###   ########.fr       */
+/*   Updated: 2023/04/08 17:57:16 by gaeokim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@
 
 typedef struct s_philo
 {
-	pthread_t		id;
-	int				num;
-	int				left_fork;
-	int				right_fork;
-	int				is_eating;
-	int				eat_cnt;
-	long long		time;
-	struct s_info	*info;
+	pthread_t			id;
+	int					num;
+	int					left_fork;
+	int					right_fork;
+	int					is_eating;
+	int					eat_cnt;
+	long long			time;
+	struct s_info		*info;
 }	t_philo;
 
 typedef struct s_info
