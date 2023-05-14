@@ -20,5 +20,5 @@
 # Exam List
 | Circle | Project Name | Score |
 | :----: | :----------: | :---: |
-| 02     | [Exam 02](https://github.com/Gaeon/Born2Code/tree/master/EXAM/Exam Rank 02) | [![gaeokim's 42 Exam Rank 02 Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/3004949)](https://github.com/JaeSeoKim/badge42) |
-| 03     | [Exam 03](https://github.com/Gaeon/Born2Code/tree/master/EXAM/Exam Rank 03) | [![gaeokim's 42 Exam Rank 03 Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/3091875)](https://github.com/JaeSeoKim/badge42) |
+| 02     | [Exam_02](https://github.com/Gaeon/Born2Code/tree/master/EXAM/Exam_Rank_02) | [![gaeokim's 42 Exam Rank 02 Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/3004949)](https://github.com/JaeSeoKim/badge42) |
+| 03     | [Exam_03](https://github.com/Gaeon/Born2Code/tree/master/EXAM/Exam_Rank_03) | [![gaeokim's 42 Exam Rank 03 Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/3091875)](https://github.com/JaeSeoKim/badge42) |
