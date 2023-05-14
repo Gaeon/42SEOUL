@@ -16,3 +16,9 @@
 | 02     | [push_swap](https://github.com/Gaeon/Born2Code/tree/master/push_swap) | `stack sorts` | <img src="https://img.shields.io/badge/c-A8B9CC?style=for-the-badge&logo=c&logoColor=white"> | [![gaeokim's 42 push_swap Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/2888898)](https://github.com/JaeSeoKim/badge42) |
 | 03     | [minishell](https://github.com/Gaeon/Born2Code/tree/master/minishell) | `write a shell` | <img src="https://img.shields.io/badge/c-A8B9CC?style=for-the-badge&logo=c&logoColor=white"> | [![gaeokim's 42 minishell Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/3052642)](https://github.com/JaeSeoKim/badge42) |
 | 03     | [philosophers](https://github.com/Gaeon/Born2Code/tree/master/philosophers) | `Philosophers with threads and mutexes` | <img src="https://img.shields.io/badge/c-A8B9CC?style=for-the-badge&logo=c&logoColor=white"> | [![gaeokim's 42 Philosophers Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/3053227)](https://github.com/JaeSeoKim/badge42) |
+
+# Exam List
+| Circle | Project Name | Score |
+| :----: | :----------: | :---: |
+| 02     | [Exam 02](https://github.com/Gaeon/Born2Code/tree/master/EXAM/Exam Rank 02) | [![gaeokim's 42 Exam Rank 02 Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/3004949)](https://github.com/JaeSeoKim/badge42) |
+| 03     | [Exam 03](https://github.com/Gaeon/Born2Code/tree/master/EXAM/Exam Rank 03) | [![gaeokim's 42 Exam Rank 03 Score](https://badge42.vercel.app/api/v2/claw7x2qs00210fjx6hhb6y3x/project/3091875)](https://github.com/JaeSeoKim/badge42) |
