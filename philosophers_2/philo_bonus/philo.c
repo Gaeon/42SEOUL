@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 16:26:08 by knoh              #+#    #+#             */
-/*   Updated: 2023/06/05 14:11:22 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/06/05 14:12:48 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void	ft_create_process(t_simul *simul, t_philo *philo)
 
 int	main(int argc, char **argv)
 {
-	int				i;
+	int		i;
 	t_simul	simul;
-	t_philo			*philo;
+	t_philo	*philo;
 
 	i = 0;
 	if (argc == 5 || argc == 6)

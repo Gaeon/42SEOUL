@@ -6,7 +6,7 @@
 /*   By: gaeon <gaeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 16:25:38 by knoh              #+#    #+#             */
-/*   Updated: 2023/06/05 14:10:55 by gaeon            ###   ########.fr       */
+/*   Updated: 2023/06/05 14:12:25 by gaeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ int	ft_get_number(char *arg)
 
 int	ft_parsing(char **argv, t_simul *simul)
 {
-	int				num;
-	int				i;
+	int	num;
+	int	i;
 
 	i = 1;
 	while (argv[i])
