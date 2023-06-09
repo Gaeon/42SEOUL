@@ -4,19 +4,19 @@
 #include <math.h>
 #include <stdio.h>
 
-int		W;
-int		H;
-char	BC;
-char	**TAB;
+int		W;		// draw zone width
+int		H;		// draw zone height
+char	BC;		// draw character
+char	**TAB;	// result
 
 typedef struct s_dw
 {
-	char	t;
-	float	x;
-	float	y;
-	float	w;
-	float	h;
-	char	c;
+	char	t;	// type
+	float	x;	// x
+	float	y;	// y
+	float	w;	// width
+	float	h;	// height
+	char	c;	// character
 }	t_dw;
 
 int	error(FILE *fd, int err)
@@ -40,10 +40,13 @@ int	error(FILE *fd, int err)
 
 int in_rect(float x, float y, t_dw dw)
 {
-	if (y < dw.x || dw.x + dw.w < y || x < dw.y || dw.y + dw.h < x)
+	// 사각형의 외부
+	if (y - dw.x < 0 || dw.x + dw.w - y < 0 || x - dw.y < 0 || dw.y + dw.h - x < 0)
 		return (0);
+	// 사각형의 경계
 	if (y - dw.x < 1 || dw.x + dw.w - y < 1 || x - dw.y < 1 || dw.y + dw.h - x < 1)
 		return (1);
+	// 사각형의 내부
 	return (2);
 }
 
@@ -72,10 +75,13 @@ int	main(int ac, char **av)
 				while (1)
 				{
 					res = fscanf(fd, "\n%c %f %f %f %f %c", &dw.t, &dw.x, &dw.y, &dw.w, &dw.h, &dw.c);
+					// 종료
 					if (res == -1)
 						return (error(fd, 0));
+					// 에러
 					if (res != 6 || dw.w <= 0 || dw.h <= 0 || (dw.t != 'r' && dw.t != 'R'))
 						break ;
+					// 사각형 그리기
 					for (int line = 0; line < H; line++)
 					{
 						for (int col = 0; col < W; col++)
